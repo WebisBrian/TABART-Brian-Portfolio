@@ -16,7 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Brian TABART - Développeur backend",
-  description: "Bienvenue sur mon portfolio ! Je suis Brian TABART, un développeur backend passionné spécialisé dans la création de solutions robustes et évolutives.",
+  description:
+    "Bienvenue sur mon portfolio ! Je suis Brian TABART, un développeur backend passionné spécialisé dans la création de solutions robustes et évolutives.",
 };
 
 export default function RootLayout({
@@ -27,16 +28,21 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <body
-        className={cn(geistSans.variable, geistMono.variable, "antialiased", "h-full")}
+        className={cn(
+          geistSans.variable,
+          geistMono.variable,
+          "antialiased",
+          "h-full",
+        )}
       >
         <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem={false}
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

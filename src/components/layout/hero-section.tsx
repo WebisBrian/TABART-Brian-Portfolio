@@ -26,11 +26,11 @@ export function HeroSection() {
 
             <div className="flex flex-wrap gap-3">
               <Button asChild>
-                <Link href="#projects">View projects</Link>
+                <Link href="#projects">Voir mes projets</Link>
               </Button>
 
               <Button variant="outline" asChild>
-                <Link href="#contact">Contact me</Link>
+                <Link href="#contact">Me contacter</Link>
               </Button>
             </div>
           </div>
