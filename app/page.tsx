@@ -1,21 +1,14 @@
-import { Section } from "@/components/layout/section";
-import { SectionHeading } from "@/components/layout/section-heading";
-import { SiteContainer } from "@/components/layout/site-container";
+import { HeroSection } from "@/components/layout/hero-section";
+
+import { SiteHeader } from "@/components/layout/site-header";
 
 export default function Home() {
   return (
-    <div >
+    <>
+      <SiteHeader />
       <main className="min-h-screen bg-background text-foreground">
-        <Section>
-          <SiteContainer>
-            <SectionHeading
-              eyebrow="Portfolio"
-              title="Brian Tabart"
-              description="Bienvenue sur mon portfolio ! Je suis développeur backend Java / Spring Boot et j'ai conçu ce site avec Next.js, Tailwind CSS et shadcn/ui."
-              />
-          </SiteContainer>          
-        </Section>
+        <HeroSection />
       </main>
-    </div>
+    </>
   );
 }
