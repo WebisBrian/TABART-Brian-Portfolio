@@ -17,7 +17,7 @@ export function SectionHeading({
         </p>
       ) : null}
 
-      <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
+      <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h1>
 
       {description ? (
         <p className="max-w-2xl text-muted-foreground">{description}</p>
