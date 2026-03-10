@@ -8,7 +8,7 @@ import { SiteContainer } from "@/components/layout/site-container";
 
 export function HeroSection() {
   return (
-    <Section className="py-12 sm:py-20">
+    <Section className="py-20 sm:py-30">
       <SiteContainer>
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className="order-2 space-y-6 lg:order-1">
