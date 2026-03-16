@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { SiteContainer } from "@/components/layout/site-container";
+import { Separator } from "../ui/separator";
 
 type FormState = {
   name: string;
@@ -92,6 +93,8 @@ export function ContactSection() {
 
   return (
     <>
+      <Separator />
+
       <Section id="contact" className="py-20">
         <SiteContainer>
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">

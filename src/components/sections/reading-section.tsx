@@ -1,22 +1,20 @@
-import Image from "next/image"
+import Image from "next/image";
 
-import { books } from "@/data/books"
+import { books } from "@/data/books";
 
-import { Badge } from "@/components/ui/badge"
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { Section } from "@/components/layout/section"
-import { SectionHeading } from "@/components/layout/section-heading"
-import { SiteContainer } from "@/components/layout/site-container"
+import { Section } from "@/components/layout/section";
+import { SectionHeading } from "@/components/layout/section-heading";
+import { SiteContainer } from "@/components/layout/site-container";
+import { Separator } from "../ui/separator";
 
 export function ReadingSection() {
   return (
     <>
+      <Separator />
+
       <Section id="reading" className="py-20">
         <SiteContainer>
           <SectionHeading
@@ -67,5 +65,5 @@ export function ReadingSection() {
         </SiteContainer>
       </Section>
     </>
-  )
+  );
 }

@@ -1,11 +1,11 @@
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowUpRight, ExternalLink, Github } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
 
-import { projects } from "@/data/projects"
+import { projects } from "@/data/projects";
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -13,18 +13,21 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 
-import { Section } from "@/components/layout/section"
-import { SectionHeading } from "@/components/layout/section-heading"
-import { SiteContainer } from "@/components/layout/site-container"
+import { Section } from "@/components/layout/section";
+import { SectionHeading } from "@/components/layout/section-heading";
+import { SiteContainer } from "@/components/layout/site-container";
+import { Separator } from "../ui/separator";
 
-const featuredProject = projects.find((project) => project.featured)
-const secondaryProjects = projects.filter((project) => !project.featured)
+const featuredProject = projects.find((project) => project.featured);
+const secondaryProjects = projects.filter((project) => !project.featured);
 
 export function ProjectsSection() {
   return (
     <>
+      <Separator />
+
       <Section id="projects" className="py-20">
         <SiteContainer>
           <SectionHeading
@@ -51,7 +54,9 @@ export function ProjectsSection() {
                     <CardHeader className="space-y-4">
                       <div className="flex flex-wrap items-center gap-3">
                         <Badge variant="secondary">Featured</Badge>
-                        <Badge variant="outline">{featuredProject.status}</Badge>
+                        <Badge variant="outline">
+                          {featuredProject.status}
+                        </Badge>
                       </div>
 
                       <CardTitle className="text-2xl sm:text-3xl">
@@ -120,7 +125,10 @@ export function ProjectsSection() {
 
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               {secondaryProjects.map((project) => (
-                <Card key={project.id} className="flex h-full flex-col overflow-hidden">
+                <Card
+                  key={project.id}
+                  className="flex h-full flex-col overflow-hidden"
+                >
                   <div className="relative h-48 bg-muted">
                     <Image
                       src={project.image}
@@ -194,5 +202,5 @@ export function ProjectsSection() {
         </SiteContainer>
       </Section>
     </>
-  )
+  );
 }

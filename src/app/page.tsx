@@ -15,15 +15,10 @@ export default function Home() {
       <SiteHeader />
       <main className="min-h-screen bg-background text-foreground">
         <HeroSection />
-        <Separator />
         <JourneySection />
-        <Separator />
         <StackSection />
-        <Separator />
         <ProjectsSection />
-        <Separator />
         <ReadingSection />
-        <Separator />
         <ContactSection />
       </main>
       <SiteFooter />
