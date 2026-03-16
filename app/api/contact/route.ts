@@ -3,6 +3,8 @@ import { Resend } from "resend"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
 export async function POST(request: Request) {
   try {
     const body = await request.json()
@@ -10,10 +12,39 @@ export async function POST(request: Request) {
     const name = body.name?.trim()
     const email = body.email?.trim()
     const message = body.message?.trim()
+    const website = body.website?.trim()
+
+    if (website) {
+      return NextResponse.json(
+        { message: "Requête invalide." },
+        { status: 400 }
+      )
+    }
 
     if (!name || !email || !message) {
       return NextResponse.json(
         { message: "Tous les champs sont obligatoires." },
+        { status: 400 }
+      )
+    }
+
+    if (name.length < 2 || name.length > 100) {
+      return NextResponse.json(
+        { message: "Le nom doit contenir entre 2 et 100 caractères." },
+        { status: 400 }
+      )
+    }
+
+    if (!EMAIL_REGEX.test(email)) {
+      return NextResponse.json(
+        { message: "L'adresse email est invalide." },
+        { status: 400 }
+      )
+    }
+
+    if (message.length < 10 || message.length > 5000) {
+      return NextResponse.json(
+        { message: "Le message doit contenir entre 10 et 5000 caractères." },
         { status: 400 }
       )
     }
