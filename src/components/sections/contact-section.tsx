@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import { FormEvent, useState } from "react"
-import { Mail, Github, Linkedin } from "lucide-react"
+import { FormEvent, useState } from "react";
+import { Mail, Github, Linkedin } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
-import { Section } from "@/components/layout/section"
-import { SectionHeading } from "@/components/layout/section-heading"
-import { SiteContainer } from "@/components/layout/site-container"
+import { Section } from "@/components/layout/section";
+import { SectionHeading } from "@/components/layout/section-heading";
+import { SiteContainer } from "@/components/layout/site-container";
 
 type FormState = {
-  name: string
-  email: string
-  message: string
-  website: string
-}
+  name: string;
+  email: string;
+  message: string;
+  website: string;
+};
 
 export function ContactSection() {
   const [form, setForm] = useState<FormState>({
@@ -24,37 +24,37 @@ export function ContactSection() {
     email: "",
     message: "",
     website: "",
-  })
+  });
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
-  const [feedbackMessage, setFeedbackMessage] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [feedbackMessage, setFeedbackMessage] = useState("");
 
   const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const { name, value } = event.target
+    const { name, value } = event.target;
 
     setForm((currentForm) => ({
       ...currentForm,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+    event.preventDefault();
 
-    setStatus("idle")
-    setFeedbackMessage("")
+    setStatus("idle");
+    setFeedbackMessage("");
 
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      setStatus("error")
-      setFeedbackMessage("Veuillez remplir tous les champs obligatoires.")
-      return
+      setStatus("error");
+      setFeedbackMessage("Veuillez remplir tous les champs obligatoires.");
+      return;
     }
 
     try {
-      setIsSubmitting(true)
+      setIsSubmitting(true);
 
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -62,33 +62,33 @@ export function ContactSection() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(form),
-      })
+      });
 
-      const data = await response.json()
+      const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || "Une erreur est survenue.")
+        throw new Error(data.message || "Une erreur est survenue.");
       }
 
-      setStatus("success")
-      setFeedbackMessage("Votre message a bien été envoyé.")
+      setStatus("success");
+      setFeedbackMessage("Votre message a bien été envoyé.");
       setForm({
         name: "",
         email: "",
         message: "",
         website: "",
-      })
+      });
     } catch (error) {
-      setStatus("error")
+      setStatus("error");
       setFeedbackMessage(
         error instanceof Error
           ? error.message
-          : "Une erreur est survenue lors de l'envoi."
-      )
+          : "Une erreur est survenue lors de l'envoi.",
+      );
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <>
@@ -203,9 +203,9 @@ export function ContactSection() {
                   id="message"
                   name="message"
                   placeholder="Décrivez votre message..."
-                  className="min-h-[160px]"
                   value={form.message}
                   onChange={handleChange}
+                  className="min-h-[160px] max-h-[300px] w-full resize-y overflow-y-auto break-all whitespace-pre-wrap"
                 />
               </div>
 
@@ -221,7 +221,11 @@ export function ContactSection() {
                 </p>
               ) : null}
 
-              <Button type="submit" className="cursor-pointer" disabled={isSubmitting}>
+              <Button
+                type="submit"
+                className="cursor-pointer"
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
               </Button>
             </form>
@@ -229,5 +233,5 @@ export function ContactSection() {
         </SiteContainer>
       </Section>
     </>
-  )
+  );
 }
