@@ -49,12 +49,6 @@ export const technologies: Technology[] = [
     icon: "/images/tech/tailwind.svg",
   },
   {
-    name: "shadcn/ui",
-    category: "UI Library",
-    description: "Composable design system blocks",
-    icon: "/images/tech/shadcn.svg",
-  },
-  {
     name: "React",
     category: "Frontend",
     description: "Component-based interfaces",
