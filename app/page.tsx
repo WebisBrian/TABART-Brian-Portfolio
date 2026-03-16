@@ -6,6 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { StackSection } from "@/components/sections/stack-section";
 import { ProjectsSection } from "@/components/sections/projects-session";
 import { ReadingSection } from "@/components/sections/reading-section";
+import { ContactSection } from "@/components/sections/contact-section";
 
 export default function Home() {
   return (
@@ -21,6 +22,8 @@ export default function Home() {
         <ProjectsSection />
         <Separator />
         <ReadingSection />
+        <Separator />
+        <ContactSection />
       </main>
     </>
   );
