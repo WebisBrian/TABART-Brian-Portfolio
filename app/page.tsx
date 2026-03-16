@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { JourneySection } from "@/components/sections/journey-section";
 import { Separator } from "@/components/ui/separator";
 import { StackSection } from "@/components/sections/stack-section";
+import { ProjectsSection } from "@/components/sections/projects-session";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Separator />
         <StackSection />
         <Separator />
+        <ProjectsSection />
       </main>
     </>
   );
