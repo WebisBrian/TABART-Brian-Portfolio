@@ -14,11 +14,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Brian TABART - Développeur backend",
-  description:
-    "Bienvenue sur mon portfolio ! Je suis Brian TABART, un développeur backend passionné spécialisé dans la création de solutions robustes et évolutives.",
-};
+export const metadata = {
+  openGraph: {
+    title: "Brian Tabart - Développeur backend",
+    description: "Java / Spring Boot portfolio développeur backend",
+    images: ["/og-image.png"],
+  },
+}
+
 
 export default function RootLayout({
   children,
