@@ -1,5 +1,6 @@
 export type Project = {
   id: string
+  slug: string
   title: string
   description: string
   longDescription?: string
@@ -14,6 +15,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "strategy-game",
+    slug: "strategy-browser-game",
     title: "Strategy Browser Game",
     description:
       "A medieval strategy and RPG browser game focused on cities, progression, and a player-driven economy.",
@@ -22,11 +24,12 @@ export const projects: Project[] = [
     stack: ["Spring Boot", "React", "MySQL", "Docker"],
     status: "In progress",
     githubUrl: "https://github.com/your-username/strategy-browser-game",
-    image: "/images/projects/strategy-game.jpg",
+    image: "/images/projects/strategy-game.png",
     featured: true,
   },
   {
     id: "portfolio",
+    slug: "developer-portfolio",
     title: "Developer Portfolio",
     description:
       "A modern portfolio built with Next.js and Tailwind CSS to showcase projects, journey, and technical stack.",
@@ -34,26 +37,28 @@ export const projects: Project[] = [
     status: "In progress",
     githubUrl: "https://github.com/your-username/portfolio",
     liveUrl: "https://your-portfolio-url.vercel.app",
-    image: "/images/projects/portfolio.jpg",
+    image: "/images/projects/portfolio.png",
   },
   {
     id: "spring-api",
+    slug: "spring-boot-api",
     title: "Spring Boot API",
     description:
       "A REST API project focused on validation, layered architecture, and clean backend practices.",
     stack: ["Java", "Spring Boot", "MySQL"],
     status: "Completed",
     githubUrl: "https://github.com/your-username/spring-api",
-    image: "/images/projects/spring-api.jpg",
+    image: "/images/projects/spring-api.png",
   },
   {
     id: "task-manager",
+    slug: "task-manager-app",
     title: "Task Manager App",
     description:
       "A productivity-oriented application designed to practice CRUD workflows, authentication, and UI integration.",
     stack: ["React", "TypeScript", "Node.js"],
     status: "Planned",
     githubUrl: "https://github.com/your-username/task-manager",
-    image: "/images/projects/task-manager.jpg",
+    image: "/images/projects/task-manager.png",
   },
 ]
