@@ -1,5 +1,6 @@
 "use client"
 
+import { FormEvent, useState } from "react"
 import { Mail, Github, Linkedin } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -10,23 +11,99 @@ import { Section } from "@/components/layout/section"
 import { SectionHeading } from "@/components/layout/section-heading"
 import { SiteContainer } from "@/components/layout/site-container"
 
+type FormState = {
+  name: string
+  email: string
+  message: string
+}
+
 export function ContactSection() {
+  const [form, setForm] = useState<FormState>({
+    name: "",
+    email: "",
+    message: "",
+  })
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
+  const [feedbackMessage, setFeedbackMessage] = useState("")
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = event.target
+
+    setForm((currentForm) => ({
+      ...currentForm,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    setStatus("idle")
+    setFeedbackMessage("")
+
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      setStatus("error")
+      setFeedbackMessage("Veuillez remplir tous les champs.")
+      return
+    }
+
+    try {
+      setIsSubmitting(true)
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.message || "Une erreur est survenue.")
+      }
+
+      setStatus("success")
+      setFeedbackMessage("Votre message a bien été envoyé.")
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      })
+    } catch (error) {
+      setStatus("error")
+      setFeedbackMessage(
+        error instanceof Error
+          ? error.message
+          : "Une erreur est survenue lors de l'envoi."
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <>
       <Section id="contact" className="py-20">
         <SiteContainer>
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            {/* Left column: introduction */}
+            {/* Colonne gauche */}
             <div className="space-y-6">
               <SectionHeading
                 eyebrow="Contact"
-                title="Let’s get in touch"
-                description="If you would like to discuss a project, an opportunity, or simply exchange about development, feel free to send me a message."
+                title="Entrons en contact"
+                description="Si vous souhaitez échanger à propos d’un projet, d’une opportunité ou simplement discuter développement, vous pouvez m’écrire ici."
               />
 
               <p className="max-w-md text-sm leading-7 text-muted-foreground sm:text-base">
-                I am particularly interested in backend development, software quality,
-                architecture, and projects with useful real-world value.
+                Je m’intéresse particulièrement au développement backend, à la
+                qualité logicielle, à l’architecture et aux projets ayant une
+                vraie utilité concrète.
               </p>
 
               <div className="space-y-3 text-sm text-muted-foreground">
@@ -60,21 +137,26 @@ export function ContactSection() {
               </div>
             </div>
 
-            {/* Right column: form */}
-            <form className="space-y-6 rounded-2xl border bg-card p-6 sm:p-8">
+            {/* Colonne droite */}
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6 rounded-2xl border bg-card p-6 sm:p-8"
+            >
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <label
                     htmlFor="name"
                     className="text-sm font-medium text-foreground"
                   >
-                    Name
+                    Nom
                   </label>
                   <Input
                     id="name"
                     name="name"
                     type="text"
-                    placeholder="Your name"
+                    placeholder="Votre nom"
+                    value={form.name}
+                    onChange={handleChange}
                   />
                 </div>
 
@@ -89,7 +171,9 @@ export function ContactSection() {
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="your@email.com"
+                    placeholder="votre@email.com"
+                    value={form.email}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -104,13 +188,27 @@ export function ContactSection() {
                 <Textarea
                   id="message"
                   name="message"
-                  placeholder="Tell me a little about your message..."
+                  placeholder="Décrivez votre message..."
                   className="min-h-[160px]"
+                  value={form.message}
+                  onChange={handleChange}
                 />
               </div>
 
-              <Button type="submit" className="cursor-pointer">
-                Send message
+              {feedbackMessage ? (
+                <p
+                  className={
+                    status === "success"
+                      ? "text-sm text-green-600"
+                      : "text-sm text-red-500"
+                  }
+                >
+                  {feedbackMessage}
+                </p>
+              ) : null}
+
+              <Button type="submit" className="cursor-pointer" disabled={isSubmitting}>
+                {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
               </Button>
             </form>
           </div>
