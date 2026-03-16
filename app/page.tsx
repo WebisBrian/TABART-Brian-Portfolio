@@ -7,6 +7,7 @@ import { StackSection } from "@/components/sections/stack-section";
 import { ProjectsSection } from "@/components/sections/projects-session";
 import { ReadingSection } from "@/components/sections/reading-section";
 import { ContactSection } from "@/components/sections/contact-section";
+import { SiteFooter } from "@/components/layout/site-footer";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <Separator />
         <ContactSection />
       </main>
+      <SiteFooter />
     </>
   );
 }
