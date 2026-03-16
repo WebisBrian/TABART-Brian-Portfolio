@@ -15,6 +15,7 @@ type FormState = {
   name: string
   email: string
   message: string
+  website: string
 }
 
 export function ContactSection() {
@@ -22,6 +23,7 @@ export function ContactSection() {
     name: "",
     email: "",
     message: "",
+    website: "",
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -47,7 +49,7 @@ export function ContactSection() {
 
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
       setStatus("error")
-      setFeedbackMessage("Veuillez remplir tous les champs.")
+      setFeedbackMessage("Veuillez remplir tous les champs obligatoires.")
       return
     }
 
@@ -74,6 +76,7 @@ export function ContactSection() {
         name: "",
         email: "",
         message: "",
+        website: "",
       })
     } catch (error) {
       setStatus("error")
@@ -92,7 +95,6 @@ export function ContactSection() {
       <Section id="contact" className="py-20">
         <SiteContainer>
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            {/* Colonne gauche */}
             <div className="space-y-6">
               <SectionHeading
                 eyebrow="Contact"
@@ -137,7 +139,6 @@ export function ContactSection() {
               </div>
             </div>
 
-            {/* Colonne droite */}
             <form
               onSubmit={handleSubmit}
               className="space-y-6 rounded-2xl border bg-card p-6 sm:p-8"
@@ -176,6 +177,19 @@ export function ContactSection() {
                     onChange={handleChange}
                   />
                 </div>
+              </div>
+
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <Input
+                  id="website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={form.website}
+                  onChange={handleChange}
+                />
               </div>
 
               <div className="space-y-2">
