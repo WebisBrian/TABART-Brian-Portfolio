@@ -2,7 +2,7 @@ import { HeroSection } from "@/components/sections/hero-section";
 
 import { SiteHeader } from "@/components/layout/site-header";
 import { JourneySection } from "@/components/sections/journey-section";
-import { Separator } from "@/components/ui/separator"
+import { Separator } from "@/components/ui/separator";
 import { StackSection } from "@/components/sections/stack-section";
 
 export default function Home() {
@@ -15,6 +15,7 @@ export default function Home() {
         <JourneySection />
         <Separator />
         <StackSection />
+        <Separator />
       </main>
     </>
   );
