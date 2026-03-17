@@ -22,8 +22,19 @@ const stagger: Variants = {
 
 export function HeroSection() {
   return (
-    <Section>
-      <SiteContainer>
+    <Section className="relative overflow-hidden">
+      {/* Grid background */}
+      <div
+        className="absolute inset-0 [background-image:linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] [background-size:40px_40px]"
+        aria-hidden="true"
+      />
+      {/* Radial fade to blend grid into background */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_30%,black)]"
+        aria-hidden="true"
+      />
+
+      <SiteContainer className="relative z-10">
         <div className="grid items-center gap-10 lg:grid-cols-2">
 
           {/* Text content — staggered fade + slide up */}
@@ -77,14 +88,17 @@ export function HeroSection() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
           >
-            <div className="relative h-64 w-64 overflow-hidden rounded-full ring-2 ring-border sm:h-80 sm:w-80">
-              <Image
-                src="/images/Profil_exterieur.png"
-                alt="Portrait de Brian Tabart"
-                fill
-                className="object-cover"
-                priority
-              />
+            {/* Gradient ring border */}
+            <div className="rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-cyan-400 p-[3px] shadow-2xl">
+              <div className="relative h-64 w-64 overflow-hidden rounded-full sm:h-80 sm:w-80">
+                <Image
+                  src="/images/profil.png"
+                  alt="Portrait de Brian Tabart"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </div>
           </motion.div>
 
