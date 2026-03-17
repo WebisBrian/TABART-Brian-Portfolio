@@ -1,69 +1,140 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
+import { motion, useInView, type Variants } from "framer-motion";
 
 import { books } from "@/data/books";
+import { cn } from "@/lib/utils";
 
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { SiteContainer } from "@/components/layout/site-container";
-import { Separator } from "../ui/separator";
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as const } },
+};
+
+const stagger: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const lu = books.filter((b) => b.status === "Lu").length;
+const enCours = books.filter((b) => b.status === "En cours").length;
+const aLire = books.filter((b) => b.status === "À lire").length;
+
+function StatusDot({ status }: { status: string }) {
+  return (
+    <span
+      className={cn(
+        "inline-block h-2 w-2 shrink-0 rounded-full",
+        status === "Lu" && "bg-green-500",
+        status === "En cours" && "bg-blue-500",
+        status === "À lire" && "bg-muted-foreground/40"
+      )}
+      aria-label={status}
+    />
+  );
+}
 
 export function ReadingSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
   return (
-    <>
-      <Separator />
+    <Section id="reading">
+      <SiteContainer>
+        <motion.div
+          ref={ref}
+          variants={stagger}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.div variants={fadeUp}>
+            <SectionHeading
+              eyebrow="Lectures"
+              title="Les livres qui forgent ma pensée"
+              description="Une sélection d'ouvrages qui influencent ma façon d'écrire du code, de structurer des applications et de penser la qualité logicielle."
+            />
+          </motion.div>
 
-      <Section id="reading" className="py-20">
-        <SiteContainer>
-          <SectionHeading
-            eyebrow="Reading"
-            title="Books that shape my thinking"
-            description="A selection of books that influence the way I write code, structure applications, and think about software quality."
-          />
+          {/* Stats bar */}
+          <motion.div
+            variants={fadeUp}
+            className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground"
+          >
+            <span className="font-medium text-foreground">{books.length} livres</span>
+            <span aria-hidden="true" className="text-border">·</span>
+            <span className="flex items-center gap-1.5">
+              <StatusDot status="Lu" />
+              {lu} lu{lu > 1 ? "s" : ""}
+            </span>
+            <span aria-hidden="true" className="text-border">·</span>
+            <span className="flex items-center gap-1.5">
+              <StatusDot status="En cours" />
+              {enCours} en cours
+            </span>
+            <span aria-hidden="true" className="text-border">·</span>
+            <span className="flex items-center gap-1.5">
+              <StatusDot status="À lire" />
+              {aLire} à lire
+            </span>
+          </motion.div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {books.map((book) => (
-              <Card
-                key={book.id}
-                className="flex h-full flex-col overflow-hidden"
-              >
-                <div className="relative h-64 bg-muted">
-                  <Image
-                    src={book.image}
-                    alt={book.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                  />
-                </div>
-
-                <CardHeader className="space-y-4">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <Badge variant="outline">{book.category}</Badge>
+          {/* Book list */}
+          <motion.div variants={fadeUp} className="mt-6">
+            <Card className="divide-y overflow-hidden p-0">
+              {books.map((book, index) => (
+                <motion.div
+                  key={book.id}
+                  variants={fadeUp}
+                  className="group flex gap-5 p-5 transition-colors duration-200 hover:bg-muted/50 sm:gap-6 sm:p-6"
+                >
+                  {/* Cover */}
+                  <div className="relative h-24 w-16 shrink-0 overflow-hidden rounded-sm bg-muted sm:h-28 sm:w-20">
+                    <Image
+                      src={book.image}
+                      alt={book.title}
+                      fill
+                      className="object-cover"
+                      sizes="80px"
+                    />
                   </div>
 
-                  <div className="space-y-1">
-                    <CardTitle className="line-clamp-2 text-xl">
-                      {book.title}
-                    </CardTitle>
-                    <p className="text-sm text-muted-foreground">
-                      {book.author}
+                  {/* Content */}
+                  <div className="flex min-w-0 flex-1 flex-col justify-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <Badge variant="outline" className="text-xs">
+                        {book.category}
+                      </Badge>
+                      <span className="text-xs text-muted-foreground/50">
+                        #{String(index + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <p className="font-semibold leading-snug">{book.title}</p>
+                        <StatusDot status={book.status} />
+                      </div>
+                      <p className="text-sm text-muted-foreground">{book.author}</p>
+                    </div>
+
+                    <p className="line-clamp-2 text-sm leading-6 text-muted-foreground">
+                      {book.takeaway}
                     </p>
                   </div>
-                </CardHeader>
-
-                <CardContent className="flex-1">
-                  <p className="line-clamp-4 text-sm leading-7 text-muted-foreground">
-                    {book.takeaway}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </SiteContainer>
-      </Section>
-    </>
+                </motion.div>
+              ))}
+            </Card>
+          </motion.div>
+        </motion.div>
+      </SiteContainer>
+    </Section>
   );
 }
