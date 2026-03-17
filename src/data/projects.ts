@@ -5,7 +5,7 @@ export type Project = {
   description: string
   longDescription?: string
   stack: string[]
-  status: "In progress" | "Completed" | "Planned"
+  status: "En cours" | "Terminé" | "Prévu"
   githubUrl?: string
   liveUrl?: string
   image: string
@@ -18,25 +18,25 @@ export const projects: Project[] = [
     slug: "strategy-browser-game",
     title: "Strategy Browser Game",
     description:
-      "A medieval strategy and RPG browser game focused on cities, progression, and a player-driven economy.",
+      "Un jeu de stratégie et RPG médiéval en navigateur axé sur les villes, la progression et une économie gérée par les joueurs.",
     longDescription:
-      "This personal project explores a backend-oriented architecture with long-term game systems, real-time progression, and a strong product vision. It is designed with maintainability and feature evolution in mind.",
+      "Ce projet personnel explore une architecture orientée backend avec des systèmes de jeu à long terme, une progression en temps réel et une vision produit solide. Il est conçu pour la maintenabilité et l'évolution des fonctionnalités.",
     stack: ["Spring Boot", "React", "MySQL", "Docker"],
-    status: "In progress",
-    githubUrl: "https://github.com/your-username/strategy-browser-game",
+    status: "En cours",
+    githubUrl: "https://github.com/WebisBrian/strategy-browser-game",
     image: "/images/projects/strategy-game.png",
     featured: true,
   },
   {
     id: "portfolio",
     slug: "developer-portfolio",
-    title: "Developer Portfolio",
+    title: "Portfolio développeur",
     description:
-      "A modern portfolio built with Next.js and Tailwind CSS to showcase projects, journey, and technical stack.",
+      "Un portfolio moderne construit avec Next.js et Tailwind CSS pour présenter mes projets, mon parcours et ma stack technique.",
     stack: ["Next.js", "TypeScript", "Tailwind", "shadcn/ui"],
-    status: "In progress",
-    githubUrl: "https://github.com/your-username/portfolio",
-    liveUrl: "https://your-portfolio-url.vercel.app",
+    status: "En cours",
+    githubUrl: "https://github.com/WebisBrian/portfolio",
+    liveUrl: "https://btabart.dev",
     image: "/images/projects/portfolio.png",
   },
   {
@@ -44,10 +44,10 @@ export const projects: Project[] = [
     slug: "spring-boot-api",
     title: "Spring Boot API",
     description:
-      "A REST API project focused on validation, layered architecture, and clean backend practices.",
+      "Un projet d'API REST axé sur la validation, l'architecture en couches et les bonnes pratiques backend.",
     stack: ["Java", "Spring Boot", "MySQL"],
-    status: "Completed",
-    githubUrl: "https://github.com/your-username/spring-api",
+    status: "Terminé",
+    githubUrl: "https://github.com/WebisBrian/spring-api",
     image: "/images/projects/spring-api.png",
   },
   {
@@ -55,10 +55,10 @@ export const projects: Project[] = [
     slug: "task-manager-app",
     title: "Task Manager App",
     description:
-      "A productivity-oriented application designed to practice CRUD workflows, authentication, and UI integration.",
+      "Une application orientée productivité pour pratiquer les workflows CRUD, l'authentification et l'intégration UI.",
     stack: ["React", "TypeScript", "Node.js"],
-    status: "Planned",
-    githubUrl: "https://github.com/your-username/task-manager",
+    status: "Prévu",
+    githubUrl: "https://github.com/WebisBrian/task-manager",
     image: "/images/projects/task-manager.png",
   },
 ]
