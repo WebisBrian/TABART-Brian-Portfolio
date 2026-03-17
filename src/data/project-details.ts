@@ -13,33 +13,33 @@ export const projectDetails: ProjectDetails[] = [
     slug: "strategy-browser-game",
 
     overview:
-      "A long-term personal project exploring the design of a persistent browser strategy game. The goal is to build a living world where players develop cities, interact through diplomacy and war, and influence a player-driven economy.",
+      "Un projet personnel à long terme explorant la conception d'un jeu de stratégie persistant en navigateur. L'objectif est de construire un monde vivant où les joueurs développent des villes, interagissent via la diplomatie et la guerre, et influencent une économie gérée par les joueurs.",
 
     problem:
-      "Most browser games rely heavily on pay-to-win mechanics and short-lived gameplay loops. This project aims to design a more balanced system where strategic decisions and collaboration between players matter more than monetization.",
+      "La plupart des jeux en navigateur reposent sur des mécaniques pay-to-win et des boucles de gameplay éphémères. Ce projet vise à concevoir un système plus équilibré où les décisions stratégiques et la collaboration entre joueurs comptent davantage que la monétisation.",
 
     architecture:
-      "The backend is designed using a layered architecture with Spring Boot. Game logic is isolated in domain services while the REST API exposes controlled endpoints to the frontend React application. Data persistence relies on MySQL, with Docker used for local development environments.",
+      "Le backend est conçu selon une architecture en couches avec Spring Boot. La logique de jeu est isolée dans des services domaine tandis que l'API REST expose des endpoints contrôlés vers l'application frontend React. La persistance repose sur MySQL, avec Docker pour les environnements de développement local.",
 
     features: [
-      "City-based progression system",
-      "Automated battles with strategic preparation",
-      "Player-driven economic systems",
-      "Short daily interaction loop (10–15 minutes)",
-      "Dynamic map of real-world cities",
+      "Système de progression basé sur les villes",
+      "Batailles automatisées avec préparation stratégique",
+      "Systèmes économiques gérés par les joueurs",
+      "Boucle d'interaction quotidienne courte (10–15 minutes)",
+      "Carte dynamique de villes réelles",
     ],
 
     challenges: [
-      "Balancing long-term gameplay systems",
-      "Designing scalable game mechanics",
-      "Ensuring maintainable backend architecture",
+      "Équilibrer les systèmes de gameplay à long terme",
+      "Concevoir des mécaniques de jeu évolutives",
+      "Maintenir une architecture backend maintenable",
     ],
 
     roadmap: [
-      "Core game loop implementation",
-      "City and economy systems",
-      "Battle simulation engine",
-      "First playable server",
+      "Implémentation de la boucle de jeu principale",
+      "Systèmes de villes et d'économie",
+      "Moteur de simulation de batailles",
+      "Premier serveur jouable",
     ],
   },
 
@@ -47,31 +47,31 @@ export const projectDetails: ProjectDetails[] = [
     slug: "developer-portfolio",
 
     overview:
-      "This portfolio was designed as a minimal, modern website to showcase projects, technical stack, and development journey. The goal was to create a fast and readable interface with a focus on simplicity.",
+      "Ce portfolio a été conçu comme un site web minimal et moderne pour présenter mes projets, ma stack technique et mon parcours. L'objectif était de créer une interface rapide et lisible, centrée sur la clarté du contenu.",
 
     problem:
-      "Many developer portfolios become overly complex or visually heavy. The objective here was to build a clean and maintainable site that focuses on content and technical clarity.",
+      "Beaucoup de portfolios développeur deviennent trop complexes ou visuellement lourds. L'objectif ici était de construire un site propre et maintenable, centré sur le contenu et la clarté technique.",
 
     architecture:
-      "The website is built with Next.js using the App Router. Styling is handled with Tailwind CSS and UI components are based on shadcn/ui. The project is deployed on Vercel with a focus on performance and simplicity.",
+      "Le site est construit avec Next.js en utilisant l'App Router. Le style est géré avec Tailwind CSS et les composants UI sont basés sur shadcn/ui. Le projet est déployé sur Vercel avec une priorité sur la performance et la simplicité.",
 
     features: [
-      "Responsive one-page design",
-      "Project showcase with detailed pages",
-      "Interactive timeline",
-      "Technology stack carousel",
-      "Contact form with email delivery",
+      "Design one-page responsive",
+      "Présentation de projets avec pages détaillées",
+      "Timeline interactive",
+      "Carrousel de stack technique",
+      "Formulaire de contact avec envoi d'email",
     ],
 
     challenges: [
-      "Designing a balanced visual layout",
-      "Keeping the codebase simple and maintainable",
+      "Concevoir une mise en page visuellement équilibrée",
+      "Maintenir une base de code simple et maintenable",
     ],
 
     roadmap: [
-      "Improve project case studies",
-      "Add blog articles on backend architecture",
-      "Enhance project pages with diagrams",
+      "Améliorer les études de cas des projets",
+      "Ajouter des articles de blog sur l'architecture backend",
+      "Enrichir les pages projets avec des diagrammes",
     ],
   },
 
@@ -79,30 +79,30 @@ export const projectDetails: ProjectDetails[] = [
     slug: "spring-boot-api",
 
     overview:
-      "A backend-focused project aimed at practicing clean architecture principles and building a maintainable REST API.",
+      "Un projet axé backend visant à pratiquer les principes d'architecture propre et à construire une API REST maintenable.",
 
     problem:
-      "Many beginner backend projects lack structure and separation of concerns. This project focuses on implementing a clear layered architecture with validation and proper service boundaries.",
+      "Beaucoup de projets backend débutants manquent de structure et de séparation des responsabilités. Ce projet se concentre sur l'implémentation d'une architecture en couches claire avec validation et des frontières de service appropriées.",
 
     architecture:
-      "The API is structured using controllers, services, and repositories with DTO validation. MySQL is used as the persistence layer while Spring Boot manages dependency injection and configuration.",
+      "L'API est structurée avec des contrôleurs, services et repositories accompagnés de validation par DTO. MySQL est utilisé comme couche de persistance tandis que Spring Boot gère l'injection de dépendances et la configuration.",
 
     features: [
-      "RESTful endpoints",
-      "DTO validation",
-      "Layered architecture",
-      "Database integration with MySQL",
+      "Endpoints RESTful",
+      "Validation par DTO",
+      "Architecture en couches",
+      "Intégration base de données MySQL",
     ],
 
     challenges: [
-      "Structuring the application correctly",
-      "Managing validation and error handling",
+      "Structurer correctement l'application",
+      "Gérer la validation et la gestion des erreurs",
     ],
 
     roadmap: [
-      "Add authentication",
-      "Improve test coverage",
-      "Introduce integration tests",
+      "Ajouter l'authentification",
+      "Améliorer la couverture de tests",
+      "Introduire des tests d'intégration",
     ],
   },
 
@@ -110,29 +110,29 @@ export const projectDetails: ProjectDetails[] = [
     slug: "task-manager-app",
 
     overview:
-      "A productivity application designed to practice full-stack development with authentication and task management workflows.",
+      "Une application de productivité conçue pour pratiquer le développement full-stack avec authentification et gestion de tâches.",
 
     problem:
-      "Task management applications are simple but effective for learning user workflows, authentication, and CRUD operations.",
+      "Les applications de gestion de tâches sont simples mais efficaces pour apprendre les workflows utilisateurs, l'authentification et les opérations CRUD.",
 
     architecture:
-      "The application will be built with React and TypeScript on the frontend and Node.js on the backend. The focus will be on a clean API design and simple but efficient UI interactions.",
+      "L'application sera construite avec React et TypeScript côté frontend et Node.js côté backend. L'accent sera mis sur une conception d'API propre et des interactions UI simples mais efficaces.",
 
     features: [
-      "Task creation and management",
-      "User authentication",
-      "Simple dashboard interface",
+      "Création et gestion de tâches",
+      "Authentification utilisateur",
+      "Interface de tableau de bord simple",
     ],
 
     challenges: [
-      "Designing a simple but usable UI",
-      "Handling authentication securely",
+      "Concevoir une UI simple mais utilisable",
+      "Gérer l'authentification de manière sécurisée",
     ],
 
     roadmap: [
-      "Authentication system",
-      "Task filtering and tagging",
-      "Deployment",
+      "Système d'authentification",
+      "Filtrage et étiquetage des tâches",
+      "Déploiement",
     ],
   },
 ]
