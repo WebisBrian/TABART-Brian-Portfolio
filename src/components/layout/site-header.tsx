@@ -1,4 +1,4 @@
-import { Navbar1 } from "../navbar1"
+import { Navbar1 } from "./navbar1"
 
 export function SiteHeader() {
   return (

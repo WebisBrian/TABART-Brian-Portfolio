@@ -7,7 +7,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "./theme-toggle";
+import { ModeToggle } from "../ui/theme-toggle";
 
 interface Navbar1Props {
   className?: string;
