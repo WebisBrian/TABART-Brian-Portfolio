@@ -20,7 +20,7 @@ export const journeySteps: JourneyStep[] = [
     icon: Sparkles,
     shortDescription:
       "Une période façonnée par la curiosité, la discipline et la construction personnelle. Elle a posé les bases des valeurs et de la résilience qui me guident encore aujourd'hui.",
-    image: "/images/youth.png",
+    image: "/images/journey/youth.png",
     highlights: ["Curiosité", "Discipline", "Fondations"],
   },
   {
@@ -31,7 +31,7 @@ export const journeySteps: JourneyStep[] = [
     icon: HeartPulse,
     shortDescription:
       "Le métier d'infirmier m'a appris le calme sous pression, la responsabilité et l'importance d'être utile aux autres. Il a renforcé mon sens de la rigueur, du travail en équipe et du service.",
-    image: "/images/nurse.png",
+    image: "/images/journey/nurse.png",
     highlights: ["Responsabilité", "Sens humain", "Travail d'équipe"],
   },
   {
@@ -42,7 +42,7 @@ export const journeySteps: JourneyStep[] = [
     icon: Laptop,
     shortDescription:
       "Le développement logiciel est devenu le prolongement naturel de mon besoin de construire des solutions utiles et durables. Je me concentre aujourd'hui sur le backend, l'architecture propre et la qualité du code.",
-    image: "/images/developer.png",
+    image: "/images/journey/developer.png",
     highlights: ["Backend", "Architecture", "Qualité du code"],
   },
 ]
