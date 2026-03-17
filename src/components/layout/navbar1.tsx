@@ -21,12 +21,10 @@ interface Navbar1Props {
   social?: {
     github: {
       title: string;
-      alt: string;
       url: string;
     };
     linkedin: {
       title: string;
-      alt: string;
       url: string;
     };
   };
@@ -37,26 +35,24 @@ const Navbar1 = ({
     url: "/",
     src: "/logo/logo-whereisbrian.svg",
     alt: "logo du portfolio de Brian Tabart",
-    title: "Brian Tabart",
+    title: "Brian Tabart - Développeur Java",
   },
   social = {
     github: {
       title: "GitHub",
-      alt: "GitHub de Brian Tabart",
       url: "https://github.com/WebisBrian",
     },
     linkedin: {
       title: "LinkedIn",
-      alt: "LinkedIn de Brian Tabart",
       url: "https://linkedin.com/in/brian-tabart",
     },
   },
   className,
 }: Navbar1Props) => {
   return (
-    <section className={cn("py-4", className)}>
+    <nav className={cn("py-4", className)}>
       <div className="flex w-full items-center justify-between">
-        <a href={logo.url} className="flex items-center gap-4">
+        <Link href={logo.url} className="flex items-center gap-4">
           <Image
             src={logo.src}
             width={32}
@@ -64,10 +60,10 @@ const Navbar1 = ({
             className="dark:invert"
             alt={logo.alt}
           />
-          <span className="text-lg font-semibold tracking-tighter">
+          <span className="hidden sm:inline text-lg font-semibold tracking-tighter">
             {logo.title}
           </span>
-        </a>
+        </Link>
 
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" asChild>
@@ -77,7 +73,7 @@ const Navbar1 = ({
               rel="noreferrer"
               aria-label={social.github.title}
             >
-              <FaGithub className="h-5 w-5" />
+              <FaGithub className="h-5 w-5" aria-hidden="true" />
             </Link>
           </Button>
 
@@ -88,14 +84,14 @@ const Navbar1 = ({
               rel="noreferrer"
               aria-label={social.linkedin.title}
             >
-              <FaLinkedin className="h-5 w-5" />
+              <FaLinkedin className="h-5 w-5" aria-hidden="true" />
             </Link>
           </Button>
 
           <ModeToggle />
         </div>
       </div>
-    </section>
+    </nav>
   );
 };
 
