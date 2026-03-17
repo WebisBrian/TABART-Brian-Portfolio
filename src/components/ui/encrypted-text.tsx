@@ -57,10 +57,11 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
 
-  // Single state object to batch char array + reveal count — never read a ref during render
+  // Initialize with the real text so server and client render identically (no Math.random during render).
+  // The useEffect will replace this with scrambled chars once mounted and in view.
   const [display, setDisplay] = useState<{ chars: string[]; revealCount: number }>({
-    chars: text ? generateGibberishPreservingSpaces(text, charset).split("") : [],
-    revealCount: 0,
+    chars: text ? text.split("") : [],
+    revealCount: text ? text.length : 0,
   });
 
   const animationFrameRef = useRef<number | null>(null);

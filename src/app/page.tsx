@@ -7,7 +7,6 @@ import { ContactSection } from "@/components/sections/contact-section";
 
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { PageTransition } from "@/components/providers/page-transition";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
 
 export default function Home() {
@@ -16,14 +15,12 @@ export default function Home() {
       <SiteHeader />
 
       <main className="min-h-screen">
-        <PageTransition>
-          <HeroSection />
-          <JourneySection />
-          <StackSection />
-          <ProjectsSection />
-          <ReadingSection />
-          <ContactSection />
-        </PageTransition>
+        <HeroSection />
+        <JourneySection />
+        <StackSection />
+        <ProjectsSection />
+        <ReadingSection />
+        <ContactSection />
       </main>
 
       <SiteFooter />
