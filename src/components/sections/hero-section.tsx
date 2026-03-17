@@ -22,7 +22,7 @@ const stagger: Variants = {
 
 export function HeroSection() {
   return (
-    <Section className="relative overflow-hidden">
+    <Section className="relative overflow-hidden pb-32 sm:pb-40">
       {/* Grid background */}
       <div
         className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-size-[40px_40px]"
