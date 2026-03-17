@@ -95,7 +95,7 @@ export function JourneySection() {
                       </div>
 
                       {/* Content */}
-                      <div className="order-1 space-y-6 lg:order-2">
+                      <div className="order-1 mx-auto w-full max-w-md space-y-6 lg:order-2 lg:mx-0 lg:max-w-none">
 
                         {/* Date range */}
                         <p className="text-xs tabular-nums tracking-widest text-muted-foreground">
