@@ -1,5 +1,5 @@
 import { SiteContainer } from "./site-container";
-import { Navbar1 } from "./navbar1";
+import { Navbar1 } from "./navbar";
 
 export function SiteHeader() {
   return (
