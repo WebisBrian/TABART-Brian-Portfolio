@@ -1,25 +1,36 @@
-import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa"
+"use client";
 
-import { Separator } from "@/components/ui/separator"
-import { SiteContainer } from "@/components/layout/site-container"
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+
+import { Separator } from "@/components/ui/separator";
+import { SiteContainer } from "@/components/layout/site-container";
 
 export function SiteFooter() {
-  const year = new Date().getFullYear()
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-40px" });
+  const year = new Date().getFullYear();
 
   return (
     <footer className="mt-20">
       <Separator />
 
       <SiteContainer className="py-8">
-        <div className="flex flex-col items-center gap-4 text-sm text-muted-foreground">
-
+        <motion.div
+          ref={ref}
+          className="flex flex-col items-center gap-4 text-sm text-muted-foreground"
+          initial={{ opacity: 0, y: 16 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+        >
           {/* Copyright */}
           <p>© {year} Brian Tabart</p>
 
           {/* Social links */}
           <div className="flex items-center gap-4">
             <a
-            // TODO: update email address
+              // TODO: update email address
               href="mailto:brian.tabart@example.com"
               aria-label="Envoyer un email"
               className="transition-colors hover:text-foreground"
@@ -47,9 +58,8 @@ export function SiteFooter() {
               <FaLinkedin className="h-5 w-5" aria-hidden="true" />
             </a>
           </div>
-
-        </div>
+        </motion.div>
       </SiteContainer>
     </footer>
-  )
+  );
 }
