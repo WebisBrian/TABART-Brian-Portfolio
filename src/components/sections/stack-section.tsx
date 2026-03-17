@@ -2,7 +2,8 @@
 
 import { useRef } from "react"
 import Image from "next/image"
-import { motion, useInView, type Variants } from "framer-motion"
+import { motion, useInView } from "framer-motion"
+import { fadeUp, stagger } from "@/lib/animations"
 
 import { technologies } from "@/data/technologies"
 import { cn } from "@/lib/utils"
@@ -15,15 +16,6 @@ import { SiteContainer } from "@/components/layout/site-container"
 const firstRow = technologies.slice(0, Math.ceil(technologies.length / 2))
 const secondRow = technologies.slice(Math.ceil(technologies.length / 2))
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
-}
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
-}
 
 type TechCardProps = {
   name: string
