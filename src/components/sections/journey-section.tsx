@@ -51,17 +51,18 @@ export function JourneySection() {
 
             {/* Tab triggers */}
             <motion.div variants={fadeUp}>
-              <TabsList className="mb-8 h-auto flex-wrap gap-2 bg-transparent p-0">
+              <TabsList className="mb-8 h-auto w-full gap-2 bg-transparent p-0 sm:w-auto sm:flex-wrap">
                 {journeySteps.map((step) => {
                   const StepIcon = step.icon;
                   return (
                     <TabsTrigger
                       key={step.id}
                       value={step.id}
-                      className="cursor-pointer inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground data-active:border-primary data-active:bg-primary data-active:text-primary-foreground data-active:shadow-none"
+                      aria-label={step.period}
+                      className="flex-1 cursor-pointer inline-flex items-center justify-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground data-active:border-primary data-active:bg-primary data-active:text-primary-foreground data-active:shadow-none sm:flex-none"
                     >
                       <StepIcon className="h-4 w-4" aria-hidden="true" />
-                      {step.period}
+                      <span className="hidden sm:inline">{step.period}</span>
                     </TabsTrigger>
                   );
                 })}
@@ -96,9 +97,9 @@ export function JourneySection() {
                       {/* Content */}
                       <div className="order-1 space-y-6 lg:order-2">
 
-                        {/* Step counter */}
-                        <p className="text-xs tabular-nums text-muted-foreground">
-                          {String(index + 1).padStart(2, "0")} / {String(journeySteps.length).padStart(2, "0")}
+                        {/* Date range */}
+                        <p className="text-xs tabular-nums tracking-widest text-muted-foreground">
+                          {step.dateRange}
                         </p>
 
                         {/* Icon + title */}

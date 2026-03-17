@@ -3,6 +3,7 @@ import { HeartPulse, Laptop, Sparkles, type LucideIcon } from "lucide-react"
 export type JourneyStep = {
   id: "youth" | "nurse" | "developer"
   period: string
+  dateRange: string
   title: string
   icon: LucideIcon
   shortDescription: string
@@ -14,6 +15,7 @@ export const journeySteps: JourneyStep[] = [
   {
     id: "youth",
     period: "Jeunesse",
+    dateRange: "1990 — 2010",
     title: "Construire ses fondations",
     icon: Sparkles,
     shortDescription:
@@ -24,6 +26,7 @@ export const journeySteps: JourneyStep[] = [
   {
     id: "nurse",
     period: "Infirmier",
+    dateRange: "2010 — 2024",
     title: "Soin, responsabilité et travail d'équipe",
     icon: HeartPulse,
     shortDescription:
@@ -34,6 +37,7 @@ export const journeySteps: JourneyStep[] = [
   {
     id: "developer",
     period: "Développeur",
+    dateRange: "Depuis 2024",
     title: "Du soin au code",
     icon: Laptop,
     shortDescription:
