@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <SiteHeader />
 
-      <main className="min-h-screen bg-background text-foreground">
+      <main className="min-h-screen">
         <HeroSection />
         <JourneySection />
         <StackSection />
