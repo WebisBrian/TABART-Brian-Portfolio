@@ -40,6 +40,7 @@ export default function RootLayout({
           geistMono.variable,
           "antialiased",
           "h-full",
+          "bg-background text-foreground",
         )}
       >
         <ThemeProvider
