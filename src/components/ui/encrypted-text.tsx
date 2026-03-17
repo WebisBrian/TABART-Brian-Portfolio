@@ -57,25 +57,28 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
 
-  const [revealCount, setRevealCount] = useState<number>(0);
+  // Single state object to batch char array + reveal count — never read a ref during render
+  const [display, setDisplay] = useState<{ chars: string[]; revealCount: number }>({
+    chars: text ? generateGibberishPreservingSpaces(text, charset).split("") : [],
+    revealCount: 0,
+  });
+
   const animationFrameRef = useRef<number | null>(null);
   const startTimeRef = useRef<number>(0);
   const lastFlipTimeRef = useRef<number>(0);
-  const scrambleCharsRef = useRef<string[]>(
+  // Internal mutable buffer used only inside the RAF loop, never during render
+  const scrambleBufferRef = useRef<string[]>(
     text ? generateGibberishPreservingSpaces(text, charset).split("") : [],
   );
 
   useEffect(() => {
     if (!isInView) return;
 
-    // Reset state for a fresh animation whenever dependencies change
-    const initial = text
-      ? generateGibberishPreservingSpaces(text, charset)
-      : "";
-    scrambleCharsRef.current = initial.split("");
+    const initial = text ? generateGibberishPreservingSpaces(text, charset) : "";
+    scrambleBufferRef.current = initial.split("");
     startTimeRef.current = performance.now();
     lastFlipTimeRef.current = startTimeRef.current;
-    setRevealCount(0);
+    setDisplay({ chars: scrambleBufferRef.current.slice(), revealCount: 0 });
 
     let isCancelled = false;
 
@@ -89,27 +92,23 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
         Math.floor(elapsedMs / Math.max(1, revealDelayMs)),
       );
 
-      setRevealCount(currentRevealCount);
-
       if (currentRevealCount >= totalLength) {
+        setDisplay({ chars: scrambleBufferRef.current.slice(), revealCount: totalLength });
         return;
       }
 
-      // Re-randomize unrevealed scramble characters on an interval
+      // Re-randomize unrevealed characters on an interval
       const timeSinceLastFlip = now - lastFlipTimeRef.current;
       if (timeSinceLastFlip >= Math.max(0, flipDelayMs)) {
-        for (let index = 0; index < totalLength; index += 1) {
-          if (index >= currentRevealCount) {
-            if (text[index] !== " ") {
-              scrambleCharsRef.current[index] =
-                generateRandomCharacter(charset);
-            } else {
-              scrambleCharsRef.current[index] = " ";
-            }
-          }
+        for (let index = currentRevealCount; index < totalLength; index += 1) {
+          scrambleBufferRef.current[index] =
+            text[index] === " " ? " " : generateRandomCharacter(charset);
         }
         lastFlipTimeRef.current = now;
       }
+
+      // Flush buffer to state so render uses state values, not the ref
+      setDisplay({ chars: scrambleBufferRef.current.slice(), revealCount: currentRevealCount });
 
       animationFrameRef.current = requestAnimationFrame(update);
     };
@@ -134,13 +133,12 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
       role="text"
     >
       {text.split("").map((char, index) => {
-        const isRevealed = index < revealCount;
+        const isRevealed = index < display.revealCount;
         const displayChar = isRevealed
           ? char
           : char === " "
             ? " "
-            : (scrambleCharsRef.current[index] ??
-              generateRandomCharacter(charset));
+            : (display.chars[index] ?? generateRandomCharacter(charset));
 
         return (
           <span
