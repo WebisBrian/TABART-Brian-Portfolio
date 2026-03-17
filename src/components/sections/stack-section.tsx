@@ -1,4 +1,8 @@
+"use client"
+
+import { useRef } from "react"
 import Image from "next/image"
+import { motion, useInView, type Variants } from "framer-motion"
 
 import { technologies } from "@/data/technologies"
 import { cn } from "@/lib/utils"
@@ -10,6 +14,16 @@ import { SiteContainer } from "@/components/layout/site-container"
 
 const firstRow = technologies.slice(0, Math.ceil(technologies.length / 2))
 const secondRow = technologies.slice(Math.ceil(technologies.length / 2))
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+}
+
+const stagger: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+}
 
 type TechCardProps = {
   name: string
@@ -36,31 +50,46 @@ function TechCard({ name, icon, darkInvert }: TechCardProps) {
 }
 
 export function StackSection() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-80px" })
+
   return (
     <Section id="stack">
       <SiteContainer>
-        <SectionHeading
-          eyebrow="Stack"
-          title="Technologies que j'utilise"
-          description="Une sélection d'outils et technologies que j'utilise régulièrement dans mes projets."
-        />
+        <motion.div
+          ref={ref}
+          variants={stagger}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.div variants={fadeUp}>
+            <SectionHeading
+              eyebrow="Stack"
+              title="Technologies que j'utilise"
+              description="Une sélection d'outils et technologies que j'utilise régulièrement dans mes projets."
+            />
+          </motion.div>
 
-        <div className="relative mt-10 flex w-full flex-col items-center justify-center overflow-hidden">
-          <Marquee pauseOnHover className="[--duration:28s]">
-            {firstRow.map((tech) => (
-              <TechCard key={tech.name} name={tech.name} icon={tech.icon} darkInvert={tech.darkInvert} />
-            ))}
-          </Marquee>
+          <motion.div
+            variants={fadeUp}
+            className="relative mt-10 flex w-full flex-col items-center justify-center overflow-hidden"
+          >
+            <Marquee pauseOnHover className="[--duration:28s]">
+              {firstRow.map((tech) => (
+                <TechCard key={tech.name} name={tech.name} icon={tech.icon} darkInvert={tech.darkInvert} />
+              ))}
+            </Marquee>
 
-          <Marquee reverse pauseOnHover className="mt-6 [--duration:32s]">
-            {secondRow.map((tech) => (
-              <TechCard key={tech.name} name={tech.name} icon={tech.icon} darkInvert={tech.darkInvert} />
-            ))}
-          </Marquee>
+            <Marquee reverse pauseOnHover className="mt-6 [--duration:32s]">
+              {secondRow.map((tech) => (
+                <TechCard key={tech.name} name={tech.name} icon={tech.icon} darkInvert={tech.darkInvert} />
+              ))}
+            </Marquee>
 
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-linear-to-r from-background sm:w-28 md:w-36" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-linear-to-l from-background sm:w-28 md:w-36" />
-        </div>
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-linear-to-r from-background sm:w-28 md:w-36" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-linear-to-l from-background sm:w-28 md:w-36" />
+          </motion.div>
+        </motion.div>
       </SiteContainer>
     </Section>
   )
