@@ -95,7 +95,7 @@ export function ProjectsSection() {
             <SectionHeading
               eyebrow="Projets"
               title="Ce que je construis"
-              description="Une sélection de projets qui reflètent mes intérêts techniques, mon parcours d'apprentissage et mon approche orientée backend."
+              description="Unene sélection de projets qui reflètent mes intérêts techniques, mon parcours d'apprentissage et mon approche orientée backend."
             />
           </motion.div>
 
