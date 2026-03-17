@@ -14,31 +14,31 @@ export const journeySteps: JourneyStep[] = [
   {
     id: "youth",
     period: "Jeunesse",
-    title: "Building foundations",
+    title: "Construire ses fondations",
     icon: Sparkles,
     shortDescription:
-      "A period shaped by curiosity, discipline, and personal construction. It laid the foundations of the values and resilience that still guide me today.",
+      "Une période façonnée par la curiosité, la discipline et la construction personnelle. Elle a posé les bases des valeurs et de la résilience qui me guident encore aujourd'hui.",
     image: "/images/youth.png",
-    highlights: ["Curiosity", "Discipline", "Foundations"],
+    highlights: ["Curiosité", "Discipline", "Fondations"],
   },
   {
     id: "nurse",
     period: "Infirmier",
-    title: "Care, responsibility, and teamwork",
+    title: "Soin, responsabilité et travail d'équipe",
     icon: HeartPulse,
     shortDescription:
-      "Working as a nurse taught me calm under pressure, responsibility, and the importance of being useful to others. It strengthened my sense of rigor, teamwork, and service.",
+      "Le métier d'infirmier m'a appris le calme sous pression, la responsabilité et l'importance d'être utile aux autres. Il a renforcé mon sens de la rigueur, du travail en équipe et du service.",
     image: "/images/nurse.png",
-    highlights: ["Responsibility", "Human focus", "Teamwork"],
+    highlights: ["Responsabilité", "Sens humain", "Travail d'équipe"],
   },
   {
     id: "developer",
     period: "Développeur",
-    title: "From care to code",
+    title: "Du soin au code",
     icon: Laptop,
     shortDescription:
-      "Software development became a natural continuation of my need to build useful and durable solutions. Today, I focus on backend engineering, clean architecture, and code quality.",
+      "Le développement logiciel est devenu le prolongement naturel de mon besoin de construire des solutions utiles et durables. Je me concentre aujourd'hui sur le backend, l'architecture propre et la qualité du code.",
     image: "/images/developer.png",
-    highlights: ["Backend", "Architecture", "Code quality"],
+    highlights: ["Backend", "Architecture", "Qualité du code"],
   },
 ]
