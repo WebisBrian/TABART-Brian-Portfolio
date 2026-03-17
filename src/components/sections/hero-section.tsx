@@ -16,6 +16,7 @@ export function HeroSection() {
               eyebrow="Portfolio"
               title="Brian Tabart"
               description="Backend developer focused on Java and Spring Boot. I build robust, maintainable, and useful applications."
+              as="h1"
             />
 
             <p className="max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
