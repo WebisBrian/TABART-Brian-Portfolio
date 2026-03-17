@@ -3,11 +3,14 @@
 import { FormEvent, useRef, useState } from "react";
 import { Mail, Send, CheckCircle } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { motion, AnimatePresence, useInView, type Variants } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import { fadeUp, stagger } from "@/lib/animations";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+
+import { Spotlight } from "@/components/ui/spotlight-new";
 
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
@@ -20,15 +23,6 @@ type FormState = {
   website: string;
 };
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
 
 const socialLinks = [
   {
@@ -115,8 +109,14 @@ export function ContactSection() {
   };
 
   return (
-    <Section id="contact">
-      <SiteContainer>
+    <Section id="contact" className="relative overflow-hidden">
+      <Spotlight />
+      {/* Top fade — smooth transition from previous section */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 z-10 h-32 bg-linear-to-b from-background to-transparent"
+        aria-hidden="true"
+      />
+      <SiteContainer className="relative z-10">
         <motion.div
           ref={ref}
           variants={stagger}
@@ -200,7 +200,7 @@ export function ContactSection() {
                   animate="visible"
                   exit={{ opacity: 0, y: -16, transition: { duration: 0.3 } }}
                   onSubmit={handleSubmit}
-                  className="space-y-6 rounded-2xl border bg-card p-6 sm:p-8"
+                  className="space-y-6 rounded-2xl border border-border/50 bg-card p-6 sm:p-8"
                 >
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
