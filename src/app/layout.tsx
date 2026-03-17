@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -13,13 +14,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
+  title: "Brian Tabart — Développeur backend",
+  description: "Java / Spring Boot portfolio développeur backend",
+  // TODO: adapt URL when deployed
+  metadataBase: new URL("https://btabart.dev"),
   openGraph: {
-    title: "Brian Tabart - Développeur backend",
+    title: "Brian Tabart — Développeur backend",
     description: "Java / Spring Boot portfolio développeur backend",
     images: ["/og-image.png"],
   },
-}
+};
 
 
 export default function RootLayout({
