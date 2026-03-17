@@ -208,7 +208,7 @@ export function ContactSection() {
                   placeholder="Décrivez votre message..."
                   value={form.message}
                   onChange={handleChange}
-                  className="min-h-[160px] max-h-[300px] w-full resize-y overflow-y-auto break-all whitespace-pre-wrap"
+                  className="min-h-40 max-h-75 w-full resize-y overflow-y-auto break-all whitespace-pre-wrap"
                 />
               </div>
 

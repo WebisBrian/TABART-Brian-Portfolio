@@ -40,7 +40,7 @@ export function ProjectsSection() {
             {featuredProject ? (
               <Card className="overflow-hidden">
                 <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
-                  <div className="relative min-h-[260px] bg-muted lg:min-h-full">
+                  <div className="relative min-h-65 bg-muted lg:min-h-full">
                     <Image
                       src={featuredProject.image}
                       alt={featuredProject.title}
@@ -146,7 +146,7 @@ export function ProjectsSection() {
 
                     <CardTitle className="text-xl">{project.title}</CardTitle>
 
-                    <CardDescription className="line-clamp-3 min-h-[4.5rem] text-sm leading-6 text-muted-foreground">
+                    <CardDescription className="line-clamp-3 min-h-18 text-sm leading-6 text-muted-foreground">
                       {project.description}
                     </CardDescription>
                   </CardHeader>

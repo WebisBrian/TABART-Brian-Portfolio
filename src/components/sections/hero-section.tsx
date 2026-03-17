@@ -25,12 +25,12 @@ export function HeroSection() {
     <Section className="relative overflow-hidden">
       {/* Grid background */}
       <div
-        className="absolute inset-0 [background-image:linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] [background-size:40px_40px]"
+        className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-size-[40px_40px]"
         aria-hidden="true"
       />
       {/* Radial fade to blend grid into background */}
       <div
-        className="pointer-events-none absolute inset-0 bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_30%,black)]"
+        className="pointer-events-none absolute inset-0 bg-background mask-[radial-gradient(ellipse_at_center,transparent_30%,black)]"
         aria-hidden="true"
       />
 
@@ -89,7 +89,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
           >
             {/* Gradient ring border */}
-            <div className="rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-cyan-400 p-[3px] shadow-2xl">
+            <div className="rounded-full bg-linear-to-br from-indigo-500 via-purple-500 to-cyan-400 p-0.75 shadow-2xl">
               <div className="relative h-64 w-64 overflow-hidden rounded-full sm:h-80 sm:w-80">
                 <Image
                   src="/images/profil.png"

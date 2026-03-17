@@ -70,7 +70,7 @@ export function JourneySection() {
             </motion.div>
 
             {/* Tab panels */}
-            {journeySteps.map((step, index) => {
+            {journeySteps.map((step) => {
               const StepIcon = step.icon;
               return (
                 <TabsContent key={step.id} value={step.id}>
