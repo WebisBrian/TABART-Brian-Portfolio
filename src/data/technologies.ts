@@ -18,8 +18,21 @@ export const technologies: Technology[] = [
     icon: "/images/tech/mysql.svg",
   },
   {
+    name: "MongoDB",
+    icon: "/images/tech/mongodb.svg",
+  },
+  {
     name: "Docker",
     icon: "/images/tech/docker.svg",
+  },
+  {
+    name: "PHP",
+    icon: "/images/tech/php.svg",
+  },
+  {
+    name: "Symfony",
+    icon: "/images/tech/symfony.svg",
+    darkInvert: true,
   },
   {
     name: "Next.js",
@@ -31,12 +44,24 @@ export const technologies: Technology[] = [
     icon: "/images/tech/typescript.svg",
   },
   {
+    name: "JavaScript",
+    icon: "/images/tech/javascript.svg",
+  },
+  {
     name: "Tailwind CSS",
     icon: "/images/tech/tailwind.svg",
   },
   {
     name: "React",
     icon: "/images/tech/react.svg",
+  },
+  {
+    name: "HTML5",
+    icon: "/images/tech/html5.svg",
+  },
+  {
+    name: "CSS3",
+    icon: "/images/tech/css3.svg",
   },
   {
     name: "GitHub",
