@@ -10,6 +10,7 @@ import { motion, useInView, type Variants } from "framer-motion";
 import { projects } from "@/data/projects";
 
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -57,6 +58,21 @@ const stagger: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.12 } },
 };
+
+function StatusBadge({ status }: { status: string }) {
+  return (
+    <Badge
+      variant="outline"
+      className={cn(
+        status === "En cours" && "border-blue-500/40 bg-blue-500/10 text-blue-500",
+        status === "Terminé" && "border-green-500/40 bg-green-500/10 text-green-500",
+        status === "Prévu" && "border-muted-foreground/40 text-muted-foreground"
+      )}
+    >
+      {status}
+    </Badge>
+  );
+}
 
 function TechBadge({ tech }: { tech: string }) {
   const description = techDescriptions[tech];
@@ -134,7 +150,7 @@ export function ProjectsSection() {
                       <CardHeader className="space-y-4">
                         <div className="flex flex-wrap items-center gap-3">
                           <Badge variant="secondary">À la une</Badge>
-                          <Badge variant="outline">{featuredProject.status}</Badge>
+                          <StatusBadge status={featuredProject.status} />
                         </div>
 
                         <CardTitle className="text-2xl sm:text-3xl">
@@ -193,18 +209,29 @@ export function ProjectsSection() {
             )}
 
             {/* Secondary projects — staggered + hover lift */}
+            <motion.div variants={fadeUp}>
+              <p className="mb-6 text-sm font-medium uppercase tracking-widest text-muted-foreground">
+                Autres projets
+              </p>
+            </motion.div>
+
             <motion.div
               variants={stagger}
               className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
             >
-              {secondaryProjects.map((project) => (
+              {secondaryProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
                   variants={fadeUp}
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.2, ease: "easeOut" as const }}
                 >
-                  <Card className="flex h-full flex-col overflow-hidden">
+                  <Card className="relative flex h-full flex-col overflow-hidden">
+
+                    {/* Decorative number */}
+                    <span className="pointer-events-none absolute right-4 top-3 select-none text-7xl font-bold leading-none text-muted-foreground/10">
+                      {String(index + 2).padStart(2, "0")}
+                    </span>
 
                     {/* Image with bottom gradient overlay */}
                     <div className="relative h-48 overflow-hidden bg-muted">
@@ -220,7 +247,7 @@ export function ProjectsSection() {
 
                     <CardHeader className="space-y-4">
                       <div className="flex flex-wrap items-center gap-3">
-                        <Badge variant="outline">{project.status}</Badge>
+                        <StatusBadge status={project.status} />
                       </div>
 
                       <CardTitle className="text-xl">{project.title}</CardTitle>
