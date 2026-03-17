@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react"
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa"
 
 import { Separator } from "@/components/ui/separator"
 import { SiteContainer } from "@/components/layout/site-container"
@@ -19,28 +19,32 @@ export function SiteFooter() {
           {/* Social links */}
           <div className="flex items-center gap-4">
             <a
-              href="mailto:your-email@example.com"
+            // TODO: update email address
+              href="mailto:brian.tabart@example.com"
+              aria-label="Envoyer un email"
               className="transition-colors hover:text-foreground"
             >
-              <Mail className="h-5 w-5" />
+              <FaEnvelope className="h-5 w-5" aria-hidden="true" />
             </a>
 
             <a
-              href="https://github.com/your-username"
+              href="https://github.com/WebisBrian"
               target="_blank"
               rel="noreferrer"
+              aria-label="GitHub"
               className="transition-colors hover:text-foreground"
             >
-              <Github className="h-5 w-5" />
+              <FaGithub className="h-5 w-5" aria-hidden="true" />
             </a>
 
             <a
-              href="https://linkedin.com/in/your-linkedin"
+              href="https://linkedin.com/in/brian-tabart"
               target="_blank"
               rel="noreferrer"
+              aria-label="LinkedIn"
               className="transition-colors hover:text-foreground"
             >
-              <Linkedin className="h-5 w-5" />
+              <FaLinkedin className="h-5 w-5" aria-hidden="true" />
             </a>
           </div>
 
