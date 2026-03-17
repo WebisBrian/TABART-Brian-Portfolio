@@ -20,7 +20,6 @@ import {
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { SiteContainer } from "@/components/layout/site-container";
-import { Separator } from "../ui/separator";
 
 export function JourneySection() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -42,7 +41,6 @@ export function JourneySection() {
 
   return (
     <>
-      <Separator />
 
       <Section id="journey" className="py-20">
         <SiteContainer>
