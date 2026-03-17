@@ -2,7 +2,8 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView, type Variants } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { fadeUp, stagger } from "@/lib/animations";
 
 import { books } from "@/data/books";
 import { cn } from "@/lib/utils";
@@ -14,15 +15,6 @@ import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { SiteContainer } from "@/components/layout/site-container";
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as const } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
-};
 
 const lu = books.filter((b) => b.status === "Lu").length;
 const enCours = books.filter((b) => b.status === "En cours").length;
@@ -88,7 +80,7 @@ export function ReadingSection() {
 
           {/* Book list */}
           <motion.div variants={fadeUp} className="mt-6">
-            <Card className="divide-y overflow-hidden p-0">
+            <Card className="divide-y divide-border/40 overflow-hidden p-0">
               {books.map((book, index) => (
                 <motion.div
                   key={book.id}
