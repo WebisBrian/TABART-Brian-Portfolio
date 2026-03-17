@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,9 +8,14 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "../ui/theme-toggle";
 
-const Navbar1 = () => {
+export function Navbar() {
   return (
-    <nav className="py-4">
+    <motion.nav
+      className="py-4"
+      initial={{ opacity: 0, y: -12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+    >
       <div className="flex w-full items-center justify-between">
         <Link href="/" className="flex items-center gap-4">
           <Image
@@ -48,8 +56,6 @@ const Navbar1 = () => {
           <ModeToggle />
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
-};
-
-export { Navbar1 };
+}
