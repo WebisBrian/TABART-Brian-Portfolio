@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
-import { motion, useInView, type Variants } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { fadeUp, stagger } from "@/lib/animations";
 
 import { projects } from "@/data/projects";
 
@@ -49,15 +50,6 @@ const techDescriptions: Record<string, string> = {
   "GitHub": "Contrôle de version et collaboration",
 };
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
 
 function StatusBadge({ status }: { status: string }) {
   return (
@@ -98,8 +90,18 @@ export function ProjectsSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <Section id="projects">
-      <SiteContainer>
+    <Section id="projects" className="relative overflow-hidden">
+      {/* Dot grid background */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(var(--border)_1px,transparent_1px)] bg-[size:24px_24px]"
+        aria-hidden="true"
+      />
+      {/* Radial fade to blend into background */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-background mask-[radial-gradient(ellipse_at_center,transparent_40%,black)]"
+        aria-hidden="true"
+      />
+      <SiteContainer className="relative z-10">
         <motion.div
           ref={ref}
           variants={stagger}
