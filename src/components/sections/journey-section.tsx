@@ -39,10 +39,12 @@ export function JourneySection() {
           </motion.div>
 
           <Tabs value={activeId} onValueChange={setActiveId}>
-
             {/* Tab triggers */}
             <motion.div variants={fadeUp}>
-              <TabsList aria-label="Étapes du parcours" className="mb-8 h-auto w-full gap-2 bg-transparent p-0 sm:w-auto sm:flex-wrap">
+              <TabsList
+                aria-label="Étapes du parcours"
+                className="mb-8 h-auto w-full gap-2 bg-transparent p-0 sm:w-auto sm:flex-wrap"
+              >
                 {journeySteps.map((step) => {
                   const StepIcon = step.icon;
                   return (
@@ -66,12 +68,13 @@ export function JourneySection() {
               return (
                 <TabsContent key={step.id} value={step.id}>
                   <motion.div
-                    initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+                    initial={
+                      prefersReducedMotion ? false : { opacity: 0, y: 12 }
+                    }
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.25, ease: "easeOut" as const }}
                   >
                     <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-
                       {/* Image */}
                       <div className="order-2 flex justify-center lg:order-1 lg:justify-start">
                         <div className="relative mx-auto aspect-4/5 w-full max-w-md lg:mx-0 overflow-hidden rounded-3xl bg-muted">
@@ -87,7 +90,6 @@ export function JourneySection() {
 
                       {/* Content */}
                       <div className="order-1 mx-auto w-full max-w-md space-y-6 lg:order-2 lg:mx-0 lg:max-w-none">
-
                         {/* Date range */}
                         <p className="text-xs tabular-nums tracking-widest text-muted-foreground">
                           {step.dateRange}
@@ -102,7 +104,9 @@ export function JourneySection() {
                             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
                               {step.period}
                             </p>
-                            <h3 className="text-2xl font-bold tracking-tight">{step.title}</h3>
+                            <h3 className="text-2xl font-bold tracking-tight">
+                              {step.title}
+                            </h3>
                           </div>
                         </div>
 
@@ -119,14 +123,12 @@ export function JourneySection() {
                             </Badge>
                           ))}
                         </div>
-
                       </div>
                     </div>
                   </motion.div>
                 </TabsContent>
               );
             })}
-
           </Tabs>
         </motion.div>
       </SiteContainer>
