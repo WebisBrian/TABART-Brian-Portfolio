@@ -16,7 +16,7 @@ const lu = books.filter((b) => b.status === "Lu").length;
 const enCours = books.filter((b) => b.status === "En cours").length;
 const aLire = books.filter((b) => b.status === "À lire").length;
 
-function StatusDot({ status }: { status: string }) {
+function StatusDot({ status, decorative = false }: { status: string; decorative?: boolean }) {
   return (
     <span
       className={cn(
@@ -25,7 +25,9 @@ function StatusDot({ status }: { status: string }) {
         status === "En cours" && "bg-blue-500",
         status === "À lire" && "bg-muted-foreground/40",
       )}
-      aria-label={status}
+      role={decorative ? undefined : "img"}
+      aria-label={decorative ? undefined : status}
+      aria-hidden={decorative ? true : undefined}
     />
   );
 }
@@ -35,7 +37,7 @@ export function ReadingSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <Section id="reading">
+    <Section id="reading" aria-label="Lectures">
       <SiteContainer>
         <motion.div
           ref={ref}
@@ -63,30 +65,31 @@ export function ReadingSection() {
               ·
             </span>
             <span className="flex items-center gap-1.5">
-              <StatusDot status="Lu" />
+              <StatusDot status="Lu" decorative />
               {lu} lu{lu > 1 ? "s" : ""}
             </span>
             <span aria-hidden="true" className="text-border">
               ·
             </span>
             <span className="flex items-center gap-1.5">
-              <StatusDot status="En cours" />
+              <StatusDot status="En cours" decorative />
               {enCours} en cours
             </span>
             <span aria-hidden="true" className="text-border">
               ·
             </span>
             <span className="flex items-center gap-1.5">
-              <StatusDot status="À lire" />
+              <StatusDot status="À lire" decorative />
               {aLire} à lire
             </span>
           </motion.div>
 
           {/* Book list */}
           <motion.div variants={fadeUp} className="mt-6">
-            <Card className="divide-y divide-border/40 overflow-hidden p-0">
+            <Card className="overflow-hidden p-0">
+              <ul className="divide-y divide-border/40">
               {books.map((book, index) => (
-                <motion.div
+                <motion.li
                   key={book.id}
                   variants={fadeUp}
                   className="group flex gap-5 p-5 transition-colors duration-200 hover:bg-muted/50 sm:gap-6 sm:p-6"
@@ -108,7 +111,7 @@ export function ReadingSection() {
                       <Badge variant="outline" className="text-xs">
                         {book.category}
                       </Badge>
-                      <span className="text-xs text-muted-foreground/50">
+                      <span className="text-xs text-muted-foreground/50" aria-hidden="true">
                         #{String(index + 1).padStart(2, "0")}
                       </span>
                     </div>
@@ -129,8 +132,9 @@ export function ReadingSection() {
                       {book.takeaway}
                     </p>
                   </div>
-                </motion.div>
+                </motion.li>
               ))}
+              </ul>
             </Card>
           </motion.div>
         </motion.div>
