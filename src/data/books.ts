@@ -55,24 +55,24 @@ export const books: Book[] = [
     category: "Backend",
     status: "En cours",
   },
-{
-  id: "tdd-by-example",
-  title: "TDD by Example",
-  author: "Kent Beck",
-  takeaway:
-    "J’attends de ce livre qu’il m’aide à affiner ma pratique du TDD, en renforçant ma capacité à concevoir des systèmes guidés par les tests.",
-  image: "/images/books/tdd-by-example.jpg",
-  category: "Qualité",
-  status: "À lire",
-},
-{
-  id: "effective-java",
-  title: "Effective Java",
-  author: "Joshua Bloch",
-  takeaway:
-    "J’attends de ce livre qu’il consolide ma maîtrise des bonnes pratiques Java, avec un focus sur la robustesse, la lisibilité et la maintenabilité du code.",
-  image: "/images/books/effective-java.jpg",
-  category: "Java",
-  status: "À lire",
-},
+  {
+    id: "tdd-by-example",
+    title: "TDD by Example",
+    author: "Kent Beck",
+    takeaway:
+      "J’attends de ce livre qu’il m’aide à affiner ma pratique du TDD, en renforçant ma capacité à concevoir des systèmes guidés par les tests.",
+    image: "/images/books/tdd-by-example.jpg",
+    category: "Qualité",
+    status: "À lire",
+  },
+  {
+    id: "effective-java",
+    title: "Effective Java",
+    author: "Joshua Bloch",
+    takeaway:
+      "J’attends de ce livre qu’il consolide ma maîtrise des bonnes pratiques Java, avec un focus sur la robustesse, la lisibilité et la maintenabilité du code.",
+    image: "/images/books/effective-java.jpg",
+    category: "Java",
+    status: "À lire",
+  },
 ];
