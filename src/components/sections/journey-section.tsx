@@ -4,16 +4,12 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { fadeUp, stagger } from "@/lib/animations";
-
 import { journeySteps } from "@/data/journey";
-
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { SiteContainer } from "@/components/layout/site-container";
-
 
 export function JourneySection() {
   const [activeId, setActiveId] = useState<string>(journeySteps[0].id);
@@ -33,8 +29,10 @@ export function JourneySection() {
           <motion.div variants={fadeUp}>
             <SectionHeading
               eyebrow="Parcours"
-              title="Quelques étapes clés"
-              description="Trois périodes importantes qui ont façonné ma façon de travailler, d&apos;apprendre et de construire."
+              title="Étapes clés"
+              description="Eh oui, mon parcours professionnel n'a pas toujours été axé sur le développement !
+              Alors voici trois périodes déterminantes qui ont façonné ma manière de travailler, d'apprendre et de 
+              construire."
               className="mb-6"
             />
           </motion.div>
