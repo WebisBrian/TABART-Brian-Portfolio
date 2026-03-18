@@ -18,7 +18,7 @@ export const projects: Project[] = [
     slug: "guideo-saas",
     title: "Guideo - SaaS pour avocats",
     description:
-      "Projet soumis à une clause de confidentialité. La première étape a consisté à concevoir de A à Z un site vitrine, avec une attention particulière portée à l’expérience utilisateur et à la clarté de l’information.",
+      "Projet soumis à une clause de confidentialité. La première étape a consisté à concevoir de A à Z un site vitrine, avec une attention particulière portée à l’UX et à la clarté de l’information.",
     longDescription:
       "Dans un second temps, une application SaaS a été développée afin de simplifier la gestion et le suivi de l’activité d’un cabinet d’avocats.",
     stack: ["Symfony", "React", "Tailwind", "MySQL", "Docker", "VPS"],
