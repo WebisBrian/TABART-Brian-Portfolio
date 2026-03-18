@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { fadeUp, stagger } from "@/lib/animations";
 import { journeySteps } from "@/data/journey";
 import { Badge } from "@/components/ui/badge";
@@ -15,9 +15,10 @@ export function JourneySection() {
   const [activeId, setActiveId] = useState<string>(journeySteps[0].id);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const prefersReducedMotion = useReducedMotion();
 
   return (
-    <Section id="journey">
+    <Section id="journey" aria-label="Parcours">
       <SiteContainer>
         <motion.div
           ref={ref}
@@ -31,7 +32,8 @@ export function JourneySection() {
               eyebrow="Parcours"
               title="Étapes clés"
               description="Eh oui, mon parcours professionnel n'a pas toujours été axé sur le développement !
-              Alors voici trois périodes déterminantes qui ont façonné ma manière de comprendre, de m’engager et de construire."
+              Alors voici trois périodes déterminantes qui ont façonné ma manière de comprendre, de m’engager et de construire.
+              "
               className="mb-6"
             />
           </motion.div>
@@ -40,7 +42,7 @@ export function JourneySection() {
 
             {/* Tab triggers */}
             <motion.div variants={fadeUp}>
-              <TabsList className="mb-8 h-auto w-full gap-2 bg-transparent p-0 sm:w-auto sm:flex-wrap">
+              <TabsList aria-label="Étapes du parcours" className="mb-8 h-auto w-full gap-2 bg-transparent p-0 sm:w-auto sm:flex-wrap">
                 {journeySteps.map((step) => {
                   const StepIcon = step.icon;
                   return (
@@ -64,7 +66,7 @@ export function JourneySection() {
               return (
                 <TabsContent key={step.id} value={step.id}>
                   <motion.div
-                    initial={{ opacity: 0, y: 12 }}
+                    initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.25, ease: "easeOut" as const }}
                   >
