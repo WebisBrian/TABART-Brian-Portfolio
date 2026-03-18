@@ -10,7 +10,6 @@ import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { SiteContainer } from "@/components/layout/site-container";
 
-
 export function HeroSection() {
   return (
     <Section className="relative overflow-hidden pb-32 sm:pb-40">
@@ -27,7 +26,6 @@ export function HeroSection() {
 
       <SiteContainer className="relative z-10">
         <div className="grid items-center gap-10 lg:grid-cols-2">
-
           {/* Text content — staggered fade + slide up */}
           <motion.div
             className="order-2 space-y-6 lg:order-1"
@@ -47,7 +45,7 @@ export function HeroSection() {
                     flipDelayMs={40}
                   />
                 }
-                description="Développeur backend spécialisé en Java et Spring Boot. Je construis des applications robustes, maintenables et utiles."
+                description="De la santé au développement backend Java, je mets aujourd’hui mon énergie au service de la création de solutions logicielles robustes, évolutives et porteuses de sens."
                 as="h1"
               />
             </motion.div>
@@ -56,17 +54,31 @@ export function HeroSection() {
               className="max-w-xl text-sm leading-7 text-muted-foreground sm:text-base"
               variants={fadeUp}
             >
-              En formation dans la conception d&apos;applications Java, je construis
-              des projets avec un fort accent sur l&apos;architecture propre, la
-              qualité du code et la maintenabilité à long terme.
+              Actuellement en formation en conception d’applications Java, je
+              développe des projets avec une attention particulière portée à
+              l’architecture, à la qualité du code et à leur maintenabilité dans
+              le temps.
             </motion.p>
 
             <motion.div className="flex flex-wrap gap-3" variants={fadeUp}>
-              <Button onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}>
+              <Button
+                onClick={() =>
+                  document
+                    .getElementById("projects")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
                 Voir mes projets
               </Button>
 
-              <Button variant="outline" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
+              <Button
+                variant="outline"
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
                 Me contacter
               </Button>
             </motion.div>
@@ -92,7 +104,6 @@ export function HeroSection() {
               </div>
             </div>
           </motion.div>
-
         </div>
       </SiteContainer>
     </Section>
