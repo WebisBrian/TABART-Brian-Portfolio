@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     const ip =
       request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
       request.headers.get("x-real-ip") ||
-      "anonymous"
+      crypto.randomUUID()
 
     const { success } = await ratelimit.limit(ip)
 
@@ -121,10 +121,7 @@ export async function POST(request: Request) {
       )
     }
 
-    return NextResponse.json(
-      { message: "Message envoyé avec succès." },
-      { status: 200 }
-    )
+    return NextResponse.json({ message: "Message envoyé avec succès." })
   } catch {
     return NextResponse.json(
       { message: "Erreur serveur lors du traitement du formulaire." },

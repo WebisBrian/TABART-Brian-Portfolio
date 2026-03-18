@@ -24,7 +24,7 @@ export function getContactEmailTemplate({
 }: ContactEmailTemplateParams) {
   const safeName = escapeHtml(name)
   const safeEmail = escapeHtml(email)
-  const safeMessage = escapeHtml(message).replace(/\n/g, "<br />")
+  const safeMessage = escapeHtml(message).replace(/\r?\n/g, "<br />")
   const safeIp = escapeHtml(ip)
   const safeSentAt = escapeHtml(sentAt)
 
