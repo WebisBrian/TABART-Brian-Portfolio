@@ -1,12 +1,18 @@
 export type Book = {
-  id: string
-  title: string
-  author: string
-  takeaway: string
-  image: string
-  category: "Qualité" | "Architecture" | "Java" | "Backend" | "Craft" | "Mindset"
-  status: "Lu" | "En cours" | "À lire"
-}
+  id: string;
+  title: string;
+  author: string;
+  takeaway: string;
+  image: string;
+  category:
+    | "Qualité"
+    | "Architecture"
+    | "Java"
+    | "Backend"
+    | "Craft"
+    | "Mindset";
+  status: "Lu" | "En cours" | "À lire";
+};
 
 export const books: Book[] = [
   {
@@ -24,40 +30,10 @@ export const books: Book[] = [
     title: "Clean Architecture",
     author: "Robert C. Martin",
     takeaway:
-      "A changé ma façon de penser les frontières, les responsabilités et la maintenabilité à long terme d'une application.",
+      "Ce livre a profondément changé ma manière de concevoir les frontières, les responsabilités et la maintenabilité d’une application. Il a pris encore plus de sens en parallèle des cours de José Paumard sur SOLID et l’architecture logicielle.",
     image: "/images/books/clean-architecture.jpg",
     category: "Architecture",
     status: "Lu",
-  },
-  {
-    id: "effective-java",
-    title: "Effective Java",
-    author: "Joshua Bloch",
-    takeaway:
-      "Une référence incontournable pour écrire du Java robuste et idiomatique. Chaque item enseigne un principe applicable immédiatement.",
-    image: "/images/books/effective-java.jpg",
-    category: "Java",
-    status: "En cours",
-  },
-  {
-    id: "spring-in-action",
-    title: "Spring in Action",
-    author: "Craig Walls",
-    takeaway:
-      "Une introduction complète à l'écosystème Spring : IoC, Spring MVC, Spring Boot et les bonnes pratiques du développement backend Java.",
-    image: "/images/books/spring-in-action.jpg",
-    category: "Backend",
-    status: "À lire",
-  },
-  {
-    id: "tdd-by-example",
-    title: "TDD by Example",
-    author: "Kent Beck",
-    takeaway:
-      "Démontre pas à pas comment le Test-Driven Development guide la conception et produit un code plus fiable et plus modulaire.",
-    image: "/images/books/tdd-by-example.jpg",
-    category: "Qualité",
-    status: "À lire",
   },
   {
     id: "the-one-thing",
@@ -69,4 +45,34 @@ export const books: Book[] = [
     category: "Mindset",
     status: "Lu",
   },
-]
+  {
+    id: "spring-in-action",
+    title: "Spring in Action",
+    author: "Craig Walls",
+    takeaway:
+      "Une introduction complète à l'écosystème Spring : IoC, Spring MVC, Spring Boot et les bonnes pratiques du développement backend Java.",
+    image: "/images/books/spring-in-action.jpg",
+    category: "Backend",
+    status: "En cours",
+  },
+{
+  id: "tdd-by-example",
+  title: "TDD by Example",
+  author: "Kent Beck",
+  takeaway:
+    "J’attends de ce livre qu’il m’aide à affiner ma pratique du TDD, en renforçant ma capacité à concevoir des systèmes guidés par les tests.",
+  image: "/images/books/tdd-by-example.jpg",
+  category: "Qualité",
+  status: "À lire",
+},
+{
+  id: "effective-java",
+  title: "Effective Java",
+  author: "Joshua Bloch",
+  takeaway:
+    "J’attends de ce livre qu’il consolide ma maîtrise des bonnes pratiques Java, avec un focus sur la robustesse, la lisibilité et la maintenabilité du code.",
+  image: "/images/books/effective-java.jpg",
+  category: "Java",
+  status: "À lire",
+},
+];
