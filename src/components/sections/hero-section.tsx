@@ -11,7 +11,7 @@ import { SiteContainer } from "@/components/layout/site-container";
 
 export function HeroSection() {
   return (
-    <Section className="relative overflow-hidden pb-32 sm:pb-40">
+    <Section aria-label="Introduction" className="relative overflow-hidden pb-32 sm:pb-40">
       {/* Grid background */}
       <div
         className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-size-[40px_40px]"
@@ -61,6 +61,7 @@ export function HeroSection() {
 
             <motion.div className="flex flex-wrap gap-3" variants={fadeUp}>
               <Button
+                type="button"
                 onClick={() =>
                   document
                     .getElementById("projects")
@@ -71,6 +72,7 @@ export function HeroSection() {
               </Button>
 
               <Button
+                type="button"
                 variant="outline"
                 onClick={() =>
                   document

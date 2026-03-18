@@ -75,6 +75,11 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
   useEffect(() => {
     if (!isInView) return;
 
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDisplay({ chars: text.split(""), revealCount: text.length });
+      return;
+    }
+
     const initial = text ? generateGibberishPreservingSpaces(text, charset) : "";
     scrambleBufferRef.current = initial.split("");
     startTimeRef.current = performance.now();
