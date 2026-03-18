@@ -4,17 +4,13 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { fadeUp, stagger } from "@/lib/animations";
-
 import { books } from "@/data/books";
 import { cn } from "@/lib/utils";
-
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { SiteContainer } from "@/components/layout/site-container";
-
 
 const lu = books.filter((b) => b.status === "Lu").length;
 const enCours = books.filter((b) => b.status === "En cours").length;
@@ -27,7 +23,7 @@ function StatusDot({ status }: { status: string }) {
         "inline-block h-2 w-2 shrink-0 rounded-full",
         status === "Lu" && "bg-green-500",
         status === "En cours" && "bg-blue-500",
-        status === "À lire" && "bg-muted-foreground/40"
+        status === "À lire" && "bg-muted-foreground/40",
       )}
       aria-label={status}
     />
@@ -50,7 +46,7 @@ export function ReadingSection() {
           <motion.div variants={fadeUp}>
             <SectionHeading
               eyebrow="Lectures"
-              title="Les livres qui forgent ma pensée"
+              title="Bibliothèque du développeur"
               description="Une sélection d'ouvrages qui influencent ma façon d'écrire du code, de structurer des applications et de penser la qualité logicielle."
             />
           </motion.div>
@@ -60,18 +56,26 @@ export function ReadingSection() {
             variants={fadeUp}
             className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground"
           >
-            <span className="font-medium text-foreground">{books.length} livres</span>
-            <span aria-hidden="true" className="text-border">·</span>
+            <span className="font-medium text-foreground">
+              {books.length} livres
+            </span>
+            <span aria-hidden="true" className="text-border">
+              ·
+            </span>
             <span className="flex items-center gap-1.5">
               <StatusDot status="Lu" />
               {lu} lu{lu > 1 ? "s" : ""}
             </span>
-            <span aria-hidden="true" className="text-border">·</span>
+            <span aria-hidden="true" className="text-border">
+              ·
+            </span>
             <span className="flex items-center gap-1.5">
               <StatusDot status="En cours" />
               {enCours} en cours
             </span>
-            <span aria-hidden="true" className="text-border">·</span>
+            <span aria-hidden="true" className="text-border">
+              ·
+            </span>
             <span className="flex items-center gap-1.5">
               <StatusDot status="À lire" />
               {aLire} à lire
@@ -111,10 +115,14 @@ export function ReadingSection() {
 
                     <div>
                       <div className="flex items-center gap-2">
-                        <p className="font-semibold leading-snug">{book.title}</p>
+                        <p className="font-semibold leading-snug">
+                          {book.title}
+                        </p>
                         <StatusDot status={book.status} />
                       </div>
-                      <p className="text-sm text-muted-foreground">{book.author}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {book.author}
+                      </p>
                     </div>
 
                     <p className="line-clamp-2 text-sm leading-6 text-muted-foreground">
