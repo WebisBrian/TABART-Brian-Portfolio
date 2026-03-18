@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { fadeUp, stagger } from "@/lib/animations";
 import Image from "next/image";
+import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { EncryptedText } from "@/components/ui/encrypted-text";
 import { Section } from "@/components/layout/section";
@@ -81,6 +82,17 @@ export function HeroSection() {
                 }
               >
                 Me contacter
+              </Button>
+
+              <Button variant="ghost" asChild>
+                <a
+                  href="/files/CV_B.TABART_2026.pdf"
+                  download="CV-Brian-Tabart.pdf"
+                  aria-label="Télécharger mon CV (PDF)"
+                >
+                  <Download aria-hidden="true" />
+                  Mon CV
+                </a>
               </Button>
             </motion.div>
           </motion.div>

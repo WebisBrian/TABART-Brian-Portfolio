@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { Mail, Send, CheckCircle } from "lucide-react";
+import { Mail, Send, CheckCircle, Download } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { fadeUp, stagger } from "@/lib/animations";
@@ -26,18 +26,28 @@ const socialLinks = [
     label: "brian.tabart.pro@outlook.fr",
     icon: Mail,
     external: false,
+    download: undefined,
   },
   {
     href: "https://github.com/WebisBrian",
     label: "GitHub",
     icon: FaGithub,
     external: true,
+    download: undefined,
   },
   {
     href: "https://linkedin.com/in/brian-tabart",
     label: "LinkedIn",
     icon: FaLinkedin,
     external: true,
+    download: undefined,
+  },
+  {
+    href: "/files/CV_B.TABART_2026.pdf",
+    label: "Télécharger mon CV",
+    icon: Download,
+    external: false,
+    download: "CV-Brian-Tabart.pdf",
   },
 ];
 
@@ -152,14 +162,19 @@ export function ContactSection() {
 
               {/* Social links as pill buttons */}
               <div className="flex flex-col gap-3">
-                {socialLinks.map(({ href, label, icon: Icon, external }) => (
+                {socialLinks.map(({ href, label, icon: Icon, external, download }) => (
                   <a
                     key={href}
                     href={href}
-                    aria-label={external ? `${label} (nouvelle fenêtre)` : label}
-                    {...(external
-                      ? { target: "_blank", rel: "noreferrer" }
-                      : {})}
+                    aria-label={
+                      download
+                        ? `${label} (PDF)`
+                        : external
+                          ? `${label} (nouvelle fenêtre)`
+                          : label
+                    }
+                    {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+                    {...(download ? { download } : {})}
                     className="group flex w-fit items-center gap-3 rounded-full border px-4 py-2 text-sm text-muted-foreground transition-colors duration-200 hover:border-foreground/30 hover:bg-muted hover:text-foreground"
                   >
                     <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
