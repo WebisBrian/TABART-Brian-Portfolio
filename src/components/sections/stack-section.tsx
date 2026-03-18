@@ -88,8 +88,14 @@ export function StackSection() {
               ))}
             </Marquee>
 
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-linear-to-r from-background sm:w-28 md:w-36" aria-hidden="true" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-linear-to-l from-background sm:w-28 md:w-36" aria-hidden="true" />
+            <div
+              className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-linear-to-r from-background sm:w-28 md:w-36"
+              aria-hidden="true"
+            />
+            <div
+              className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-linear-to-l from-background sm:w-28 md:w-36"
+              aria-hidden="true"
+            />
           </motion.div>
         </motion.div>
       </SiteContainer>
