@@ -1,0 +1,92 @@
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    :root { color: #000000; }
+    @media (prefers-color-scheme: dark) { :root { color: #ffffff; } }
+  </style>
+
+  <!-- Main outer shape -->
+  <circle cx="300" cy="300" r="230" fill="none" stroke="currentColor" stroke-width="8"/>
+
+  <!-- Broken outer arcs -->
+  <path d="M300 78 A222 222 0 0 1 430 120"
+        fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round"/>
+  <path d="M510 240 A222 222 0 0 1 495 375"
+        fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round"/>
+  <path d="M395 500 A222 222 0 0 1 250 515"
+        fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round"/>
+  <path d="M110 390 A222 222 0 0 1 92 245"
+        fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round"/>
+
+  <!-- Four geometric markers -->
+  <g fill="currentColor">
+    <path d="M300 52 L316 84 L284 84 Z"/>
+    <path d="M548 300 L516 316 L516 284 Z"/>
+    <path d="M300 548 L284 516 L316 516 Z"/>
+    <path d="M52 300 L84 284 L84 316 Z"/>
+  </g>
+
+  <!-- Decorative diagonal accents -->
+  <g stroke="currentColor" stroke-width="5" stroke-linecap="round">
+    <line x1="135" y1="135" x2="165" y2="165"/>
+    <line x1="465" y1="135" x2="435" y2="165"/>
+    <line x1="135" y1="465" x2="165" y2="435"/>
+    <line x1="465" y1="465" x2="435" y2="435"/>
+  </g>
+
+  <!-- Inner shield-like medallion -->
+  <path d="M300 155
+           C372 155 430 205 430 275
+           C430 365 360 435 300 462
+           C240 435 170 365 170 275
+           C170 205 228 155 300 155 Z"
+        fill="transparent" stroke="currentColor" stroke-width="7"/>
+
+  <!-- Upper decorative arc inside -->
+  <path d="M220 205 Q300 165 380 205"
+        fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Lower decorative arc inside -->
+  <path d="M225 385 Q300 425 375 385"
+        fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Center divider -->
+  <line x1="300" y1="205" x2="300" y2="402" stroke="currentColor" stroke-width="3"/>
+
+  <!-- WiB monogram -->
+  <g fill="currentColor" transform="translate(-40,0)">
+    <path d="
+      M270 210 L270 390 L360 390
+      Q440 390 440 340
+      Q440 300 395 285
+      Q430 270 430 235
+      Q430 210 410 195
+      Q390 180 350 180
+      L270 180 Z
+
+      M300 210 L340 210
+      Q400 210 400 240
+      Q400 275 340 275
+      L300 275 Z
+
+      M300 300 L350 300
+      Q410 300 410 340
+      Q410 370 350 370
+      L300 370 Z"/>
+  </g>
+
+  <!-- Side ornaments -->
+  <g stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M128 300 Q150 285 172 300 Q150 315 128 300 Z"/>
+    <path d="M472 300 Q450 285 428 300 Q450 315 472 300 Z"/>
+  </g>
+
+  <!-- Small dots -->
+  <g fill="currentColor">
+    <circle cx="300" cy="118" r="5"/>
+    <circle cx="482" cy="300" r="5"/>
+    <circle cx="300" cy="482" r="5"/>
+    <circle cx="118" cy="300" r="5"/>
+  </g>
+
+</svg>
