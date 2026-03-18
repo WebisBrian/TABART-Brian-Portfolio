@@ -7,12 +7,13 @@ import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
 import { fadeUp, stagger } from "@/lib/animations";
-
 import { projects } from "@/data/projects";
-
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { Section } from "@/components/layout/section";
+import { SectionHeading } from "@/components/layout/section-heading";
+import { SiteContainer } from "@/components/layout/site-container";
 import {
   Card,
   CardContent,
@@ -27,38 +28,36 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 
-import { Section } from "@/components/layout/section";
-import { SectionHeading } from "@/components/layout/section-heading";
-import { SiteContainer } from "@/components/layout/site-container";
-
 const featuredProject = projects.find((p) => p.featured);
 const secondaryProjects = projects.filter((p) => !p.featured);
 
 // Short French descriptions shown in badge hover cards
 const techDescriptions: Record<string, string> = {
-  "Java": "Langage orienté objet robuste",
+  Java: "Langage orienté objet robuste",
   "Spring Boot": "Framework Java pour APIs REST",
-  "MySQL": "Base de données relationnelle",
-  "MongoDB": "Base de données orientée documents",
-  "Docker": "Conteneurisation et déploiement portable",
+  MySQL: "Base de données relationnelle",
+  MongoDB: "Base de données orientée documents",
+  Docker: "Conteneurisation et déploiement portable",
   "Next.js": "Framework React full-stack",
-  "TypeScript": "JavaScript avec typage statique",
-  "Tailwind": "Framework CSS utilitaire",
+  TypeScript: "JavaScript avec typage statique",
+  Tailwind: "Framework CSS utilitaire",
   "shadcn/ui": "Composants UI accessibles pour React",
-  "React": "Bibliothèque UI basée sur les composants",
+  React: "Bibliothèque UI basée sur les composants",
   "Node.js": "Runtime JavaScript côté serveur",
-  "GitHub": "Contrôle de version et collaboration",
+  GitHub: "Contrôle de version et collaboration",
 };
-
 
 function StatusBadge({ status }: { status: string }) {
   return (
     <Badge
       variant="outline"
       className={cn(
-        status === "En cours" && "border-blue-500/40 bg-blue-500/10 text-blue-500",
-        status === "Terminé" && "border-green-500/40 bg-green-500/10 text-green-500",
-        status === "Prévu" && "border-muted-foreground/40 text-muted-foreground"
+        status === "En cours" &&
+          "border-blue-500/40 bg-blue-500/10 text-blue-500",
+        status === "Terminé" &&
+          "border-green-500/40 bg-green-500/10 text-green-500",
+        status === "Prévu" &&
+          "border-muted-foreground/40 text-muted-foreground",
       )}
     >
       {status}
@@ -76,7 +75,9 @@ function TechBadge({ tech }: { tech: string }) {
   return (
     <HoverCard openDelay={200} closeDelay={100}>
       <HoverCardTrigger asChild>
-        <Badge variant="secondary" className="cursor-default">{tech}</Badge>
+        <Badge variant="secondary" className="cursor-default">
+          {tech}
+        </Badge>
       </HoverCardTrigger>
       <HoverCardContent className="w-auto px-3 py-1.5 text-xs">
         {description}
@@ -90,7 +91,7 @@ export function ProjectsSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <Section id="projects" className="relative overflow-hidden">
+    <Section id="projects" aria-label="Projets" className="relative overflow-hidden">
       {/* Dot grid background */}
       <div
         className="absolute inset-0 bg-[radial-gradient(var(--border)_1px,transparent_1px)] bg-[size:24px_24px]"
@@ -112,19 +113,17 @@ export function ProjectsSection() {
           <motion.div variants={fadeUp}>
             <SectionHeading
               eyebrow="Projets"
-              title="Ce que je construis"
-              description="Une sélection de projets qui reflètent mes intérêts techniques, mon parcours d'apprentissage et mon approche orientée backend."
+              title="Sélection de projets"
+              description="Voici un ensemble de projets qui reflètent mes intérêts techniques, mon parcours d'apprentissage et mon approche orientée backend."
             />
           </motion.div>
 
           <div className="mt-10 space-y-8">
-
             {/* Featured project */}
             {featuredProject && (
               <motion.div variants={fadeUp}>
                 <Card className="overflow-hidden">
                   <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
-
                     {/* Image with zoom on hover */}
                     <div className="relative min-h-65 overflow-hidden bg-muted lg:min-h-full">
                       <motion.div
@@ -145,7 +144,7 @@ export function ProjectsSection() {
                     {/* Content */}
                     <div className="relative flex flex-col justify-between">
                       {/* Large decorative number */}
-                      <span className="pointer-events-none absolute right-6 top-4 select-none text-8xl font-bold leading-none text-muted-foreground/10">
+                      <span className="pointer-events-none absolute right-6 top-4 select-none text-8xl font-bold leading-none text-muted-foreground/10" aria-hidden="true">
                         01
                       </span>
 
@@ -181,15 +180,19 @@ export function ProjectsSection() {
                       <CardFooter className="flex flex-wrap gap-3">
                         <Button variant="secondary" asChild>
                           <Link href={`/projects/${featuredProject.slug}`}>
-                            <ArrowUpRight />
+                            <ArrowUpRight aria-hidden="true" />
                             Détails
                           </Link>
                         </Button>
 
                         {featuredProject.githubUrl && (
                           <Button variant="outline" asChild>
-                            <a href={featuredProject.githubUrl} target="_blank" rel="noreferrer">
-                              <FaGithub />
+                            <a
+                              href={featuredProject.githubUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <FaGithub aria-hidden="true" />
                               GitHub
                             </a>
                           </Button>
@@ -197,8 +200,12 @@ export function ProjectsSection() {
 
                         {featuredProject.liveUrl && (
                           <Button asChild>
-                            <a href={featuredProject.liveUrl} target="_blank" rel="noreferrer">
-                              <ExternalLink />
+                            <a
+                              href={featuredProject.liveUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <ExternalLink aria-hidden="true" />
                               Démo
                             </a>
                           </Button>
@@ -229,9 +236,8 @@ export function ProjectsSection() {
                   transition={{ duration: 0.2, ease: "easeOut" as const }}
                 >
                   <Card className="relative flex h-full flex-col overflow-hidden">
-
                     {/* Decorative number */}
-                    <span className="pointer-events-none absolute right-4 top-3 select-none text-7xl font-bold leading-none text-muted-foreground/10">
+                    <span className="pointer-events-none absolute right-4 top-3 select-none text-7xl font-bold leading-none text-muted-foreground/10" aria-hidden="true">
                       {String(index + 2).padStart(2, "0")}
                     </span>
 
@@ -244,7 +250,7 @@ export function ProjectsSection() {
                         className="object-contain"
                         sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                       />
-                      <div className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-card to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-card to-transparent" aria-hidden="true" />
                     </div>
 
                     <CardHeader className="space-y-4">
@@ -270,15 +276,19 @@ export function ProjectsSection() {
                     <CardFooter className="flex flex-wrap gap-3">
                       <Button variant="secondary" size="sm" asChild>
                         <Link href={`/projects/${project.slug}`}>
-                          <ArrowUpRight />
+                          <ArrowUpRight aria-hidden="true" />
                           Détails
                         </Link>
                       </Button>
 
                       {project.githubUrl && (
                         <Button variant="outline" size="sm" asChild>
-                          <a href={project.githubUrl} target="_blank" rel="noreferrer">
-                            <FaGithub />
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <FaGithub aria-hidden="true" />
                             GitHub
                           </a>
                         </Button>
@@ -286,8 +296,12 @@ export function ProjectsSection() {
 
                       {project.liveUrl && (
                         <Button size="sm" asChild>
-                          <a href={project.liveUrl} target="_blank" rel="noreferrer">
-                            <ExternalLink />
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <ExternalLink aria-hidden="true" />
                             Démo
                           </a>
                         </Button>
@@ -297,7 +311,6 @@ export function ProjectsSection() {
                 </motion.div>
               ))}
             </motion.div>
-
           </div>
         </motion.div>
       </SiteContainer>
