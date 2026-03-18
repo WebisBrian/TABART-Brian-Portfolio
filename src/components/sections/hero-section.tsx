@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { fadeUp, stagger } from "@/lib/animations";
 import Image from "next/image";
-import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { EncryptedText } from "@/components/ui/encrypted-text";
@@ -63,12 +62,12 @@ export function HeroSection() {
             </motion.p>
 
             <motion.div className="flex flex-wrap gap-3" variants={fadeUp}>
-              <Button asChild>
-                <Link href="#projects">Voir mes projets</Link>
+              <Button onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}>
+                Voir mes projets
               </Button>
 
-              <Button variant="outline" asChild>
-                <Link href="#contact">Me contacter</Link>
+              <Button variant="outline" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
+                Me contacter
               </Button>
             </motion.div>
           </motion.div>

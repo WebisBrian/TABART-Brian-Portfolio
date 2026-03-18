@@ -29,11 +29,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound()
   }
 
+  const relatedProjects = projects
+    .filter((p) => p.slug !== slug)
+    .slice(0, 2)
+
   return (
     <>
       <SiteHeader />
       <main className="min-h-screen">
-        <ProjectPageContent project={project} details={details} />
+        <ProjectPageContent project={project} details={details} relatedProjects={relatedProjects} />
       </main>
       <SiteFooter />
     </>
