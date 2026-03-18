@@ -1,48 +1,48 @@
-import { HeartPulse, Laptop, Sparkles, type LucideIcon } from "lucide-react"
+import { HeartPulse, Laptop, Sparkles, type LucideIcon } from "lucide-react";
 
 export type JourneyStep = {
-  id: "youth" | "nurse" | "developer"
-  period: string
-  dateRange: string
-  title: string
-  icon: LucideIcon
-  shortDescription: string
-  image: string
-  highlights: string[]
-}
+  id: "youth" | "nurse" | "developer";
+  period: string;
+  dateRange: string;
+  title: string;
+  icon: LucideIcon;
+  shortDescription: string;
+  image: string;
+  highlights: string[];
+};
 
 export const journeySteps: JourneyStep[] = [
   {
     id: "youth",
     period: "Jeunesse",
     dateRange: "1990 — 2010",
-    title: "Construire ses fondations",
+    title: "Apprendre et explorer",
     icon: Sparkles,
     shortDescription:
-      "Une période façonnée par la curiosité, la discipline et la construction personnelle. Elle a posé les bases des valeurs et de la résilience qui me guident encore aujourd'hui.",
+      "Une période marquée par la curiosité, l’apprentissage et les jeux vidéo, accompagnée d’un certain brin d’insouciance. C'est là que s'est construit le goût de comprendre, d'apprendre et d'essayer.",
     image: "/images/journey/youth.png",
-    highlights: ["Curiosité", "Discipline", "Fondations"],
+    highlights: ["Curiosité", "Compréhension", "Expérimentation"],
   },
   {
     id: "nurse",
     period: "Infirmier",
     dateRange: "2010 — 2024",
-    title: "Soin, responsabilité et travail d'équipe",
+    title: "S'engager et prendre soin",
     icon: HeartPulse,
     shortDescription:
-      "Le métier d'infirmier m'a appris le calme sous pression, la responsabilité et l'importance d'être utile aux autres. Il a renforcé mon sens de la rigueur, du travail en équipe et du service.",
+      "Infirmier pendant onze ans au CHU de Rouen, j’y ai appris à garder mon calme sous pression, à assumer des responsabilités et à m’appuyer sur le collectif. Cette expérience m’a surtout appris à faire face à l’inconnu, à m’adapter à des situations complexes et à trouver des solutions, sans jamais oublier l’essentiel : l’humain, au cœur de ma pratique.",
     image: "/images/journey/nurse.png",
-    highlights: ["Responsabilité", "Sens humain", "Travail d'équipe"],
+    highlights: ["Empathie", "Responsabilité", "Esprit d'équipe"],
   },
   {
     id: "developer",
     period: "Développeur",
     dateRange: "Depuis 2024",
-    title: "Du soin au code",
+    title: "Construire et structurer",
     icon: Laptop,
     shortDescription:
-      "Le développement logiciel est devenu le prolongement naturel de mon besoin de construire des solutions utiles et durables. Je me concentre aujourd'hui sur le backend, l'architecture propre et la qualité du code.",
+      "Le développement logiciel est devenu une continuité naturelle de mon parcours. Continuer à être utile, autrement. Je me concentre aujourd’hui sur le backend, avec une attention forte portée à la qualité du code et aux architectures durables.",
     image: "/images/journey/developer.png",
-    highlights: ["Backend", "Architecture", "Qualité du code"],
+    highlights: ["Backend", "Architecture", "Maintenabilité"],
   },
-]
+];

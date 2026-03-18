@@ -31,8 +31,7 @@ export function JourneySection() {
               eyebrow="Parcours"
               title="Étapes clés"
               description="Eh oui, mon parcours professionnel n'a pas toujours été axé sur le développement !
-              Alors voici trois périodes déterminantes qui ont façonné ma manière de travailler, d'apprendre et de 
-              construire."
+              Alors voici trois périodes déterminantes qui ont façonné ma manière de comprendre, de m’engager et de construire."
               className="mb-6"
             />
           </motion.div>
