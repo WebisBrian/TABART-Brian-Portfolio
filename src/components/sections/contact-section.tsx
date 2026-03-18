@@ -1,17 +1,14 @@
 "use client";
 
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { Mail, Send, CheckCircle } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { fadeUp, stagger } from "@/lib/animations";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-
 import { Spotlight } from "@/components/ui/spotlight-new";
-
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { SiteContainer } from "@/components/layout/site-container";
@@ -23,11 +20,10 @@ type FormState = {
   website: string;
 };
 
-
 const socialLinks = [
   {
-    href: "mailto:brian.tabart@example.com", // TODO: update email address
-    label: "brian.tabart@example.com",
+    href: "mailto:brian.tabart.pro@outlook.fr",
+    label: "brian.tabart.pro@outlook.fr",
     icon: Mail,
     external: false,
   },
@@ -48,6 +44,7 @@ const socialLinks = [
 export function ContactSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const successRef = useRef<HTMLDivElement>(null);
 
   const [form, setForm] = useState<FormState>({
     name: "",
@@ -60,8 +57,14 @@ export function ContactSection() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [feedbackMessage, setFeedbackMessage] = useState("");
 
+  useEffect(() => {
+    if (status === "success") {
+      successRef.current?.focus();
+    }
+  }, [status]);
+
   const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = event.target;
     setForm((currentForm) => ({ ...currentForm, [name]: value }));
@@ -101,7 +104,7 @@ export function ContactSection() {
       setFeedbackMessage(
         error instanceof Error
           ? error.message
-          : "Une erreur est survenue lors de l'envoi."
+          : "Une erreur est survenue lors de l'envoi.",
       );
     } finally {
       setIsSubmitting(false);
@@ -109,7 +112,7 @@ export function ContactSection() {
   };
 
   return (
-    <Section id="contact" className="relative overflow-hidden">
+    <Section id="contact" aria-label="Contact" className="relative overflow-hidden">
       <Spotlight />
       {/* Top fade — smooth transition from previous section */}
       <div
@@ -124,13 +127,11 @@ export function ContactSection() {
           animate={isInView ? "visible" : "hidden"}
         >
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-
             {/* Left column */}
             <motion.div variants={fadeUp} className="space-y-6">
-
               {/* Availability indicator */}
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span className="relative flex h-2.5 w-2.5">
+                <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
                 </span>
@@ -144,9 +145,9 @@ export function ContactSection() {
               />
 
               <p className="max-w-md text-sm leading-7 text-muted-foreground sm:text-base">
-                Je m&apos;intéresse particulièrement au développement backend, à la
-                qualité logicielle, à l&apos;architecture et aux projets ayant une
-                vraie utilité concrète.
+                Je m&apos;intéresse particulièrement au développement backend, à
+                la qualité logicielle, à l&apos;architecture et aux projets
+                ayant une vraie utilité concrète.
               </p>
 
               {/* Social links as pill buttons */}
@@ -155,7 +156,10 @@ export function ContactSection() {
                   <a
                     key={href}
                     href={href}
-                    {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+                    aria-label={external ? `${label} (nouvelle fenêtre)` : label}
+                    {...(external
+                      ? { target: "_blank", rel: "noreferrer" }
+                      : {})}
                     className="group flex w-fit items-center gap-3 rounded-full border px-4 py-2 text-sm text-muted-foreground transition-colors duration-200 hover:border-foreground/30 hover:bg-muted hover:text-foreground"
                   >
                     <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
@@ -170,25 +174,29 @@ export function ContactSection() {
               {status === "success" ? (
                 <motion.div
                   key="success"
+                  ref={successRef}
+                  tabIndex={-1}
+                  role="status"
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -16 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="flex flex-col items-center justify-center gap-5 rounded-2xl border bg-card p-12 text-center"
+                  className="flex flex-col items-center justify-center gap-5 rounded-2xl border border-border/50 bg-card p-12 text-center outline-none"
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-500/10">
-                    <CheckCircle className="h-7 w-7 text-green-500" aria-hidden="true" />
+                    <CheckCircle
+                      className="h-7 w-7 text-green-500"
+                      aria-hidden="true"
+                    />
                   </div>
                   <div className="space-y-2">
                     <p className="text-lg font-semibold">Message envoyé !</p>
                     <p className="text-sm text-muted-foreground">
-                      Merci pour votre message. Je vous répondrai dans les meilleurs délais.
+                      Merci pour votre message. Je vous répondrai dans les
+                      meilleurs délais.
                     </p>
                   </div>
-                  <Button
-                    variant="outline"
-                    onClick={() => setStatus("idle")}
-                  >
+                  <Button variant="outline" onClick={() => setStatus("idle")}>
                     Envoyer un autre message
                   </Button>
                 </motion.div>
@@ -204,28 +212,36 @@ export function ContactSection() {
                 >
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium text-foreground">
-                        Nom <span className="text-muted-foreground">*</span>
+                      <label
+                        htmlFor="name"
+                        className="text-sm font-medium text-foreground"
+                      >
+                        Nom <span className="text-muted-foreground" aria-hidden="true">*</span>
                       </label>
                       <Input
                         id="name"
                         name="name"
                         type="text"
                         placeholder="Votre nom"
+                        aria-required="true"
                         value={form.name}
                         onChange={handleChange}
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium text-foreground">
-                        Email <span className="text-muted-foreground">*</span>
+                      <label
+                        htmlFor="email"
+                        className="text-sm font-medium text-foreground"
+                      >
+                        Email <span className="text-muted-foreground" aria-hidden="true">*</span>
                       </label>
                       <Input
                         id="email"
                         name="email"
                         type="email"
                         placeholder="votre@email.com"
+                        aria-required="true"
                         value={form.email}
                         onChange={handleChange}
                       />
@@ -247,13 +263,17 @@ export function ContactSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-foreground">
-                      Message <span className="text-muted-foreground">*</span>
+                    <label
+                      htmlFor="message"
+                      className="text-sm font-medium text-foreground"
+                    >
+                      Message <span className="text-muted-foreground" aria-hidden="true">*</span>
                     </label>
                     <Textarea
                       id="message"
                       name="message"
                       placeholder="Décrivez votre message..."
+                      aria-required="true"
                       value={form.message}
                       onChange={handleChange}
                       className="min-h-40 max-h-75 w-full resize-y overflow-y-auto break-words whitespace-pre-wrap"
@@ -261,7 +281,14 @@ export function ContactSection() {
                   </div>
 
                   {feedbackMessage && (
-                    <p className={status === "error" ? "text-sm text-red-500" : "text-sm text-green-600"}>
+                    <p
+                      role="alert"
+                      className={
+                        status === "error"
+                          ? "text-sm text-red-500"
+                          : "text-sm text-green-600"
+                      }
+                    >
                       {feedbackMessage}
                     </p>
                   )}
@@ -271,7 +298,11 @@ export function ContactSection() {
                       <>
                         <motion.span
                           animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          transition={{
+                            duration: 1,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
                           className="inline-flex"
                         >
                           <Send className="h-4 w-4" aria-hidden="true" />
@@ -288,7 +319,6 @@ export function ContactSection() {
                 </motion.form>
               )}
             </AnimatePresence>
-
           </div>
         </motion.div>
       </SiteContainer>
