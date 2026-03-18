@@ -178,7 +178,7 @@ export function ProjectsSection() {
                       </CardContent>
 
                       <CardFooter className="flex flex-wrap gap-3">
-                        <Button variant="secondary" asChild>
+                        <Button variant="secondary" size="lg" asChild>
                           <Link href={`/projects/${featuredProject.slug}`}>
                             <ArrowUpRight aria-hidden="true" />
                             Détails
@@ -186,7 +186,7 @@ export function ProjectsSection() {
                         </Button>
 
                         {featuredProject.githubUrl && (
-                          <Button variant="outline" asChild>
+                          <Button variant="outline" size="lg" asChild>
                             <a
                               href={featuredProject.githubUrl}
                               target="_blank"
@@ -199,7 +199,7 @@ export function ProjectsSection() {
                         )}
 
                         {featuredProject.liveUrl && (
-                          <Button asChild>
+                          <Button size="lg" asChild>
                             <a
                               href={featuredProject.liveUrl}
                               target="_blank"
@@ -274,7 +274,7 @@ export function ProjectsSection() {
                     </CardContent>
 
                     <CardFooter className="flex flex-wrap gap-3">
-                      <Button variant="secondary" size="sm" asChild>
+                      <Button variant="secondary" asChild>
                         <Link href={`/projects/${project.slug}`}>
                           <ArrowUpRight aria-hidden="true" />
                           Détails
@@ -282,7 +282,7 @@ export function ProjectsSection() {
                       </Button>
 
                       {project.githubUrl && (
-                        <Button variant="outline" size="sm" asChild>
+                        <Button variant="outline" asChild>
                           <a
                             href={project.githubUrl}
                             target="_blank"
@@ -295,7 +295,7 @@ export function ProjectsSection() {
                       )}
 
                       {project.liveUrl && (
-                        <Button size="sm" asChild>
+                        <Button asChild>
                           <a
                             href={project.liveUrl}
                             target="_blank"

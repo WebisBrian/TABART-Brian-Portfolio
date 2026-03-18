@@ -71,6 +71,8 @@ export function HeroSection() {
             <motion.div className="flex flex-wrap gap-3" variants={fadeUp}>
               <Button
                 type="button"
+                size="lg"
+                className="h-11 px-6 text-base"
                 onClick={() =>
                   document
                     .getElementById("projects")
@@ -83,6 +85,8 @@ export function HeroSection() {
               <Button
                 type="button"
                 variant="outline"
+                size="lg"
+                className="h-11 px-6 text-base"
                 onClick={() =>
                   document
                     .getElementById("contact")
@@ -92,7 +96,7 @@ export function HeroSection() {
                 Me contacter
               </Button>
 
-              <Button variant="ghost" asChild>
+              <Button variant="ghost" size="lg" className="h-11 px-5 text-base" asChild>
                 <a
                   href="/files/CV_B.TABART_2026.pdf"
                   download="CV-Brian-Tabart.pdf"

@@ -211,7 +211,7 @@ export function ContactSection() {
                       meilleurs délais.
                     </p>
                   </div>
-                  <Button variant="outline" onClick={() => setStatus("idle")}>
+                  <Button variant="outline" size="lg" onClick={() => setStatus("idle")}>
                     Envoyer un autre message
                   </Button>
                 </motion.div>
@@ -308,7 +308,7 @@ export function ContactSection() {
                     </p>
                   )}
 
-                  <Button type="submit" disabled={isSubmitting}>
+                  <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
                     {isSubmitting ? (
                       <>
                         <motion.span
