@@ -134,26 +134,31 @@ export const EncryptedText: React.FC<EncryptedTextProps> = ({
   return (
     <motion.span
       ref={ref}
-      className={cn(className)}
+      className={cn("relative inline-block", className)}
       aria-label={text}
     >
-      {text.split("").map((char, index) => {
-        const isRevealed = index < display.revealCount;
-        const displayChar = isRevealed
-          ? char
-          : char === " "
-            ? " "
-            : (display.chars[index] ?? generateRandomCharacter(charset));
+      {/* Invisible placeholder — locks layout dimensions to final text size */}
+      <span className="invisible select-none" aria-hidden="true">{text}</span>
+      {/* Animated characters absolutely positioned — no layout shifts */}
+      <span className="absolute inset-0" aria-hidden="true">
+        {text.split("").map((char, index) => {
+          const isRevealed = index < display.revealCount;
+          const displayChar = isRevealed
+            ? char
+            : char === " "
+              ? " "
+              : (display.chars[index] ?? generateRandomCharacter(charset));
 
-        return (
-          <span
-            key={index}
-            className={cn(isRevealed ? revealedClassName : encryptedClassName)}
-          >
-            {displayChar}
-          </span>
-        );
-      })}
+          return (
+            <span
+              key={index}
+              className={cn(isRevealed ? revealedClassName : encryptedClassName)}
+            >
+              {displayChar}
+            </span>
+          );
+        })}
+      </span>
     </motion.span>
   );
 };

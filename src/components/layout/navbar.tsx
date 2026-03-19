@@ -44,6 +44,7 @@ export function Navbar() {
               height={40}
               className="dark:invert"
               alt="logo du portfolio de Brian Tabart"
+              priority
             />
             <span className="hidden text-lg font-semibold tracking-tight sm:inline">
               Brian Tabart
