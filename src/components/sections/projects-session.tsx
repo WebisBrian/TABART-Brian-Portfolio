@@ -33,18 +33,24 @@ const secondaryProjects = projects.filter((p) => !p.featured);
 
 // Short French descriptions shown in badge hover cards
 const techDescriptions: Record<string, string> = {
-  Java: "Langage orienté objet robuste",
+  "Java": "Langage orienté objet robuste",
   "Spring Boot": "Framework Java pour APIs REST",
-  MySQL: "Base de données relationnelle",
-  MongoDB: "Base de données orientée documents",
-  Docker: "Conteneurisation et déploiement portable",
+  "Spring Security": "Authentification et sécurité pour applications Spring",
+  "Symfony": "Framework PHP structuré et orienté bonnes pratiques",
+  "Thymeleaf": "Moteur de templates Java côté serveur",
+  "MySQL": "Base de données relationnelle",
+  "PostgreSQL": "Base de données relationnelle",
+  "MongoDB": "Base de données orientée documents",
+  "Docker": "Conteneurisation et déploiement portable",
+  "VPS": "Serveur privé virtuel pour un déploiement maîtrisé",
   "Next.js": "Framework React full-stack",
-  TypeScript: "JavaScript avec typage statique",
-  Tailwind: "Framework CSS utilitaire",
+  "TypeScript": "JavaScript avec typage statique",
+  "Tailwind": "Framework CSS utilitaire",
   "shadcn/ui": "Composants UI accessibles pour React",
-  React: "Bibliothèque UI basée sur les composants",
+  "React": "Bibliothèque UI basée sur les composants",
   "Node.js": "Runtime JavaScript côté serveur",
-  GitHub: "Contrôle de version et collaboration",
+  "GitHub": "Contrôle de version et collaboration",
+  "Vercel": "Plateforme de déploiement optimisée pour Next.js",
 };
 
 function StatusBadge({ status }: { status: string }) {
@@ -148,7 +154,7 @@ export function ProjectsSection() {
                         01
                       </span>
 
-                      <CardHeader className="space-y-4">
+                      <CardHeader className="space-y-4 pt-8">
                         <div className="flex flex-wrap items-center gap-3">
                           <Badge variant="secondary">À la une</Badge>
                           <StatusBadge status={featuredProject.status} />
@@ -253,7 +259,7 @@ export function ProjectsSection() {
                       <div className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-card to-transparent" aria-hidden="true" />
                     </div>
 
-                    <CardHeader className="space-y-4">
+                    <CardHeader className="space-y-4 pt-5">
                       <div className="flex flex-wrap items-center gap-3">
                         <StatusBadge status={project.status} />
                       </div>
