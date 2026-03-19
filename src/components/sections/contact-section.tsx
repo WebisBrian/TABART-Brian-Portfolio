@@ -145,7 +145,7 @@ export function ContactSection() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
                 </span>
-                Disponible pour de nouvelles opportunités
+                Disponible — Recherche une alternance développeur Java
               </div>
 
               <SectionHeading
