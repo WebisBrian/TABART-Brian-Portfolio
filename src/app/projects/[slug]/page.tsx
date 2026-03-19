@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation"
+import type { Metadata } from "next"
 
 import { projects } from "@/data/projects"
 import { projectDetails } from "@/data/project-details"
@@ -11,6 +12,23 @@ type ProjectPageProps = {
   params: Promise<{
     slug: string
   }>
+}
+
+export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
+  const { slug } = await params
+  const project = projects.find((p) => p.slug === slug)
+
+  if (!project) return {}
+
+  return {
+    title: `${project.title} — Brian Tabart`,
+    description: project.description,
+    openGraph: {
+      title: project.title,
+      description: project.description,
+      images: [project.image],
+    },
+  }
 }
 
 export function generateStaticParams() {
