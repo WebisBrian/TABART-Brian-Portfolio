@@ -164,7 +164,7 @@ export function ProjectsSection() {
                           {featuredProject.title}
                         </CardTitle>
 
-                        <CardDescription className="line-clamp-3 text-sm leading-7 text-muted-foreground sm:text-base">
+                        <CardDescription className="text-sm leading-7 text-muted-foreground sm:text-base">
                           {featuredProject.description}
                         </CardDescription>
                       </CardHeader>
