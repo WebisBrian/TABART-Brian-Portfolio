@@ -73,23 +73,22 @@ export function Navbar() {
         </div>
 
         {/* Right: social links + theme toggle */}
-        <div className="flex shrink-0 items-center gap-1">
+        <div className="flex shrink-0 items-center gap-2">
           <motion.div
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: "easeOut", delay: 0.36 }}
           >
-            <Button variant="ghost" asChild>
-              <a
-                href="https://github.com/WebisBrian"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub (nouvelle fenêtre)"
-              >
-                <FaGithub className="h-5 w-5 shrink-0" aria-hidden="true" />
-                <span className="hidden sm:inline">GitHub</span>
-              </a>
-            </Button>
+            <a
+              href="https://github.com/WebisBrian"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub (nouvelle fenêtre)"
+              className="inline-flex items-center gap-2 rounded-md px-2 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+            >
+              <FaGithub className="h-7 w-7 shrink-0 sm:h-5 sm:w-5" aria-hidden="true" />
+              <span className="hidden sm:inline">GitHub</span>
+            </a>
           </motion.div>
 
           <motion.div
@@ -97,17 +96,16 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: "easeOut", delay: 0.43 }}
           >
-            <Button variant="ghost" asChild>
-              <a
-                href="https://linkedin.com/in/brian-tabart"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn (nouvelle fenêtre)"
-              >
-                <FaLinkedin className="h-5 w-5 shrink-0" aria-hidden="true" />
-                <span className="hidden sm:inline">LinkedIn</span>
-              </a>
-            </Button>
+            <a
+              href="https://linkedin.com/in/brian-tabart"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn (nouvelle fenêtre)"
+              className="inline-flex items-center gap-2 rounded-md px-2 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+            >
+              <FaLinkedin className="h-7 w-7 shrink-0 sm:h-5 sm:w-5" aria-hidden="true" />
+              <span className="hidden sm:inline">LinkedIn</span>
+            </a>
           </motion.div>
 
           <motion.div

@@ -28,13 +28,13 @@ export function SiteFooter() {
           <p>© {year} Brian Tabart</p>
 
           {/* Social links */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <a
               href="mailto:brian.tabart.pro@outlook.fr"
               aria-label="Envoyer un email"
-              className="transition-colors hover:text-foreground"
+              className="p-3 transition-colors hover:text-foreground"
             >
-              <FaEnvelope className="h-5 w-5" aria-hidden="true" />
+              <FaEnvelope className="h-7 w-7 shrink-0 sm:h-5 sm:w-5" aria-hidden="true" />
             </a>
 
             <a
@@ -42,9 +42,9 @@ export function SiteFooter() {
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
-              className="transition-colors hover:text-foreground"
+              className="p-2 transition-colors hover:text-foreground"
             >
-              <FaGithub className="h-5 w-5" aria-hidden="true" />
+              <FaGithub className="h-7 w-7 shrink-0 sm:h-5 sm:w-5" aria-hidden="true" />
             </a>
 
             <a
@@ -52,9 +52,9 @@ export function SiteFooter() {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
-              className="transition-colors hover:text-foreground"
+              className="p-2 transition-colors hover:text-foreground"
             >
-              <FaLinkedin className="h-5 w-5" aria-hidden="true" />
+              <FaLinkedin className="h-7 w-7 shrink-0 sm:h-5 sm:w-5" aria-hidden="true" />
             </a>
           </div>
         </motion.div>
