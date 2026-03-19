@@ -5,12 +5,10 @@ import Link from "next/link";
 import { ArrowLeft, ExternalLink, ArrowUpRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
-
 import type { Project } from "@/data/projects";
 import type { ProjectDetails } from "@/data/project-details";
 import { cn } from "@/lib/utils";
 import { fadeUp, stagger } from "@/lib/animations";
-
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -37,7 +35,7 @@ function BulletList({ items }: { items: string[] }) {
     <ul className="space-y-2 text-sm leading-7 text-muted-foreground">
       {items.map((item) => (
         <li key={item} className="flex items-start gap-2">
-          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
           {item}
         </li>
       ))}
@@ -52,7 +50,7 @@ function RoadmapTimeline({ steps }: { steps: string[] }) {
         <li key={step} className="relative flex gap-3 pb-5 last:pb-0">
           {/* Connecting line */}
           {index < steps.length - 1 && (
-            <div className="absolute left-3 top-6 h-full w-px bg-border/40" />
+            <div className="absolute left-3 top-6 h-full w-px bg-border/40" aria-hidden="true" />
           )}
           {/* Step number */}
           <div className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border/50 bg-background text-xs font-medium text-muted-foreground">
@@ -96,7 +94,7 @@ export function ProjectPageContent({ project, details, relatedProjects }: Props)
           <motion.div variants={fadeUp}>
             <Button variant="ghost" asChild className="px-0 hover:bg-transparent">
               <Link href="/#projects">
-                <ArrowLeft />
+                <ArrowLeft aria-hidden="true" />
                 Retour aux projets
               </Link>
             </Button>
@@ -183,13 +181,13 @@ export function ProjectPageContent({ project, details, relatedProjects }: Props)
             </div>
 
             {/* Right — sticky sidebar */}
-            <aside className="space-y-8 lg:sticky lg:top-24 lg:self-start">
+            <aside aria-label="Informations du projet" className="space-y-8 lg:sticky lg:top-24 lg:self-start">
 
               {/* Stack */}
               <div className="space-y-3">
-                <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+                <h2 className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
                   Stack
-                </p>
+                </h2>
                 <div className="flex flex-wrap gap-2">
                   {project.stack.map((tech) => (
                     <Badge key={tech} variant="secondary">{tech}</Badge>
@@ -200,13 +198,13 @@ export function ProjectPageContent({ project, details, relatedProjects }: Props)
               {/* Links */}
               {(project.githubUrl || project.liveUrl) && (
                 <div className="space-y-3">
-                  <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+                  <h2 className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
                     Liens
-                  </p>
+                  </h2>
                   <div className="flex flex-col gap-2">
                     {project.githubUrl && (
                       <Button variant="outline" size="sm" asChild className="justify-start">
-                        <a href={project.githubUrl} target="_blank" rel="noreferrer">
+                        <a href={project.githubUrl} target="_blank" rel="noreferrer" aria-label="GitHub (nouvelle fenêtre)">
                           <FaGithub aria-hidden="true" />
                           GitHub
                         </a>
@@ -214,7 +212,7 @@ export function ProjectPageContent({ project, details, relatedProjects }: Props)
                     )}
                     {project.liveUrl && (
                       <Button size="sm" asChild className="justify-start">
-                        <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                        <a href={project.liveUrl} target="_blank" rel="noreferrer" aria-label="Démo live (nouvelle fenêtre)">
                           <ExternalLink aria-hidden="true" />
                           Démo live
                         </a>
@@ -227,9 +225,9 @@ export function ProjectPageContent({ project, details, relatedProjects }: Props)
               {/* Roadmap timeline */}
               {details.roadmap && details.roadmap.length > 0 && (
                 <div className="space-y-4">
-                  <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+                  <h2 className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
                     Roadmap
-                  </p>
+                  </h2>
                   <RoadmapTimeline steps={details.roadmap} />
                 </div>
               )}
@@ -240,9 +238,9 @@ export function ProjectPageContent({ project, details, relatedProjects }: Props)
           {relatedProjects.length > 0 && (
             <motion.div variants={fadeUp} className="space-y-6">
               <Separator className="opacity-40" />
-              <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+              <h2 className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
                 Voir aussi
-              </p>
+              </h2>
               <div className="grid gap-6 sm:grid-cols-2">
                 {relatedProjects.map((p) => (
                   <Link key={p.id} href={`/projects/${p.slug}`} className="group block">
@@ -278,7 +276,7 @@ export function ProjectPageContent({ project, details, relatedProjects }: Props)
           <motion.div variants={fadeUp}>
             <Button variant="ghost" asChild className="px-0 hover:bg-transparent">
               <Link href="/#projects">
-                <ArrowLeft />
+                <ArrowLeft aria-hidden="true" />
                 Retour aux projets
               </Link>
             </Button>
