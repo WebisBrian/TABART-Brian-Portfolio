@@ -13,7 +13,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-20">
+    <footer className="mt-20 bg-card dark:bg-background">
       <Separator />
 
       <SiteContainer className="py-8">
