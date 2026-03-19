@@ -8,10 +8,12 @@ import { ContactSection } from "@/components/sections/contact-section";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
+import { AnnouncementBanner } from "@/components/layout/announcement-banner";
 
 export default function Home() {
   return (
     <>
+      <AnnouncementBanner />
       <SiteHeader />
 
       <main className="min-h-screen">
