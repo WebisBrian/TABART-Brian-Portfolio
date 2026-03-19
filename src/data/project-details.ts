@@ -10,7 +10,7 @@ export type ProjectDetails = {
 
 export const projectDetails: ProjectDetails[] = [
   {
-    slug: "strategy-browser-game",
+    slug: "guideo-saas",
 
     overview:
       "Un projet personnel à long terme explorant la conception d'un jeu de stratégie persistant en navigateur. L'objectif est de construire un monde vivant où les joueurs développent des villes, interagissent via la diplomatie et la guerre, et influencent une économie gérée par les joueurs.",
@@ -44,7 +44,7 @@ export const projectDetails: ProjectDetails[] = [
   },
 
   {
-    slug: "developer-portfolio",
+    slug: "portfolio",
 
     overview:
       "Ce portfolio a été conçu comme un site web minimal et moderne pour présenter mes projets, ma stack technique et mon parcours. L'objectif était de créer une interface rapide et lisible, centrée sur la clarté du contenu.",
@@ -76,7 +76,7 @@ export const projectDetails: ProjectDetails[] = [
   },
 
   {
-    slug: "spring-boot-api",
+    slug: "paymybuddy",
 
     overview:
       "Un projet axé backend visant à pratiquer les principes d'architecture propre et à construire une API REST maintenable.",
@@ -107,7 +107,7 @@ export const projectDetails: ProjectDetails[] = [
   },
 
   {
-    slug: "task-manager-app",
+    slug: "safetynet-alerts",
 
     overview:
       "Une application de productivité conçue pour pratiquer le développement full-stack avec authentification et gestion de tâches.",
