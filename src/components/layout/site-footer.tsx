@@ -30,8 +30,7 @@ export function SiteFooter() {
           {/* Social links */}
           <div className="flex items-center gap-4">
             <a
-              // TODO: update email address
-              href="mailto:brian.tabart@example.com"
+              href="mailto:brian.tabart.pro@outlook.fr"
               aria-label="Envoyer un email"
               className="transition-colors hover:text-foreground"
             >
