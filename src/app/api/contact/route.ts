@@ -6,7 +6,7 @@ import { getContactEmailTemplate } from "@/lib/contact-email-template"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/
 
 export async function POST(request: Request) {
   try {
@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     const ip =
       request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
       request.headers.get("x-real-ip") ||
-      crypto.randomUUID()
+      "unknown"
 
     const { success } = await ratelimit.limit(ip)
 
