@@ -291,7 +291,7 @@ export function ContactSection() {
                       aria-required="true"
                       value={form.message}
                       onChange={handleChange}
-                      className="min-h-40 max-h-75 w-full resize-y overflow-y-auto break-words whitespace-pre-wrap"
+                      className="min-h-40 max-h-75 w-full resize-y overflow-y-auto wrap-break-word whitespace-pre-wrap"
                     />
                   </div>
 

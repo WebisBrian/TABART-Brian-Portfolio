@@ -100,7 +100,7 @@ export function ProjectsSection() {
     <Section id="projects" aria-label="Projets" className="relative overflow-hidden">
       {/* Dot grid background */}
       <div
-        className="absolute inset-0 bg-[radial-gradient(var(--border)_1px,transparent_1px)] bg-[size:24px_24px]"
+        className="absolute inset-0 bg-[radial-gradient(var(--border)_1px,transparent_1px)] bg-size-[24px_24px]"
         aria-hidden="true"
       />
       {/* Radial fade to blend into background */}
