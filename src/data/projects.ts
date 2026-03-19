@@ -45,7 +45,7 @@ export const projects: Project[] = [
     title: "PayMyBuddy - Transfert d'argent",
     description:
       "L'application repose sur une architecture en couches avec DB-first. L'objectif est de proposer une solution simple, fiable et accessible pour les échanges d'argent du quotidien.",
-    stack: ["Spring Boot", "Spring Security", "Thymeleaf", "Tailwind", "MySQL"],
+    stack: ["Spring Boot", "Spring Security", "Thymeleaf", "MySQL", "Continuous Integration"],
     status: "Terminé",
     githubUrl: "https://github.com/WebisBrian/TABART-Brian-payMyBuddy",
     image: "/images/projects/paymybuddy.png",

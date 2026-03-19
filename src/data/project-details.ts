@@ -88,30 +88,39 @@ export const projectDetails: ProjectDetails[] = [
     slug: "paymybuddy",
 
     overview:
-      "Un projet axé backend visant à pratiquer les principes d'architecture propre et à construire une API REST maintenable.",
+      "Pay My Buddy est une application web de transfert d’argent entre utilisateurs, réalisée dans le cadre de ma formation Java. Ce projet m’a permis de concevoir une application complète, de la base de données à l’interface web, avec un focus sur la sécurité, la structuration du backend et la gestion des transactions.",
 
     problem:
-      "Beaucoup de projets backend débutants manquent de structure et de séparation des responsabilités. Ce projet se concentre sur l'implémentation d'une architecture en couches claire avec validation et des frontières de service appropriées.",
+      "Les solutions de transfert d’argent entre particuliers peuvent être complexes et peu intuitives. L’objectif était de concevoir une application simple et sécurisée permettant de gérer un réseau de contacts et d’effectuer des transactions financières. Le projet m’a également confronté à des choix structurants, notamment l’approche DB-first, où la base de données est définie comme source de vérité, imposant une stricte cohérence avec les entités applicatives.",
 
     architecture:
-      "L'API est structurée avec des contrôleurs, services et repositories accompagnés de validation par DTO. MySQL est utilisé comme couche de persistance tandis que Spring Boot gère l'injection de dépendances et la configuration.",
+      "L’application repose sur une architecture en couches clairement définie. La couche Web (MVC) gère les contrôleurs et les vues Thymeleaf. La couche Application implémente les cas d’usage et la logique métier. La couche Domain contient les entités. Enfin, la couche Infrastructure s’appuie sur Spring Data JPA pour l’accès aux données et Spring Security pour la gestion de la sécurité. La base de données MySQL est conçue en approche DB-first, avec validation du schéma via Hibernate (ddl-auto=validate).",
 
     features: [
-      "Endpoints RESTful",
-      "Validation par DTO",
-      "Architecture en couches",
-      "Intégration base de données MySQL",
+      "Gestion des utilisateurs et authentification sécurisée",
+      "Gestion d’un réseau de contacts via email",
+      "Réalisation de transactions financières entre utilisateurs",
+      "Gestion centralisée des erreurs (Global Exception Handler)",
+      "Interface web basée sur Thymeleaf",
+      "Validation des données et gestion des règles métier",
+      "Base de données MySQL conçue en DB-first avec scripts SQL",
+      "Pipeline CI minimal (build + tests)",
     ],
 
     challenges: [
-      "Structurer correctement l'application",
-      "Gérer la validation et la gestion des erreurs",
+      "Adopter une approche DB-first avec cohérence stricte entre schéma SQL et entités JPA",
+      "Structurer l’application selon une architecture en couches claire et maintenable",
+      "Mettre en place la sécurité avec Spring Security",
+      "Implémenter une gestion robuste des transactions financières",
     ],
 
     roadmap: [
-      "Ajouter l'authentification",
-      "Améliorer la couverture de tests",
-      "Introduire des tests d'intégration",
+      "Conception du modèle de données (MPD) et scripts SQL",
+      "Mise en place de l’architecture en couches (MVC, services, repository)",
+      "Développement des fonctionnalités principales (utilisateurs, contacts, transactions)",
+      "Intégration de la sécurité avec Spring Security",
+      "Développement de l’interface web avec Thymeleaf",
+      "Validation du projet via soutenance et revue de code",
     ],
   },
 
@@ -119,29 +128,37 @@ export const projectDetails: ProjectDetails[] = [
     slug: "safetynet-alerts",
 
     overview:
-      "Une application de productivité conçue pour pratiquer le développement full-stack avec authentification et gestion de tâches.",
+      "SafetyNet Alerts est une API REST développée en Java avec Spring Boot, visant à fournir des informations aux services de secours à partir de données locales (personnes, casernes, dossiers médicaux). Réalisé dans le cadre de ma formation, ce projet m’a permis de concevoir un backend structuré, avec un focus sur la maintenabilité, la qualité du code et les tests.",
 
     problem:
-      "Les applications de gestion de tâches sont simples mais efficaces pour apprendre les workflows utilisateurs, l'authentification et les opérations CRUD.",
+      "L’enjeu du projet était de concevoir une API capable de traiter et exposer des données critiques de manière fiable. Les données étant issues d’un fichier JSON, il a fallu mettre en place une persistance capable de supporter les opérations CRUD tout en conservant les modifications après redémarrage. Le projet imposait également le respect de contraintes strictes : architecture MVC, principes SOLID, logging structuré et couverture de tests.",
 
     architecture:
-      "L'application sera construite avec React et TypeScript côté frontend et Node.js côté backend. L'accent sera mis sur une conception d'API propre et des interactions UI simples mais efficaces.",
+      "L’application repose sur une architecture MVC avec une séparation claire des responsabilités. Les contrôleurs exposent les endpoints REST et délèguent aux services, qui portent la logique métier. Les repositories gèrent l’accès et la persistance des données JSON. Les DTO permettent de contrôler les échanges et de ne pas exposer directement le modèle. La gestion des erreurs est centralisée via un GlobalExceptionHandler, et une stratégie de logs structurée est mise en place (INFO, DEBUG, ERROR).",
 
     features: [
-      "Création et gestion de tâches",
-      "Authentification utilisateur",
-      "Interface de tableau de bord simple",
+      "API REST avec endpoints fonctionnels et CRUD",
+      "Lecture et écriture des données depuis un fichier JSON persistant",
+      "Gestion centralisée des erreurs (Global Exception Handler, ProblemDetail)",
+      "Architecture MVC avec séparation des responsabilités",
+      "DTO pour sécuriser les échanges et structurer les réponses",
+      "Tests unitaires et Web MVC avec couverture mesurée (JaCoCo)",
+      "Logging structuré (INFO, DEBUG, ERROR)",
     ],
 
     challenges: [
-      "Concevoir une UI simple mais utilisable",
-      "Gérer l'authentification de manière sécurisée",
+      "Mettre en place une persistance JSON fiable avec conservation des données après redémarrage",
+      "Structurer l’application selon les principes MVC et SOLID",
+      "Maintenir une bonne couverture de tests (unitaires et Web MVC)",
+      "Gérer proprement les erreurs et les réponses HTTP",
     ],
 
     roadmap: [
-      "Système d'authentification",
-      "Filtrage et étiquetage des tâches",
-      "Déploiement",
+      "Conception de l’architecture et des modèles de données",
+      "Implémentation des endpoints fonctionnels et CRUD",
+      "Mise en place de la persistance JSON",
+      "Ajout des tests unitaires et Web MVC avec rapports JaCoCo",
+      "Amélioration continue (refactoring, SOLID, évolutivité vers base de données)",
     ],
   },
 ];
