@@ -76,7 +76,7 @@ export function ProjectPageContent({ project, details, relatedProjects }: Props)
     <div className="relative overflow-hidden">
       {/* Dot grid background */}
       <div
-        className="absolute inset-0 bg-[radial-gradient(var(--border)_1px,transparent_1px)] bg-[size:24px_24px]"
+        className="absolute inset-0 bg-[radial-gradient(var(--border)_1px,transparent_1px)] bg-[size:24px_24px] opacity-40 dark:opacity-100"
         aria-hidden="true"
       />
       <div
@@ -274,6 +274,15 @@ export function ProjectPageContent({ project, details, relatedProjects }: Props)
               </div>
             </motion.div>
           )}
+
+          <motion.div variants={fadeUp}>
+            <Button variant="ghost" asChild className="px-0 hover:bg-transparent">
+              <Link href="/#projects">
+                <ArrowLeft />
+                Retour aux projets
+              </Link>
+            </Button>
+          </motion.div>
 
         </motion.div>
       </SiteContainer>
