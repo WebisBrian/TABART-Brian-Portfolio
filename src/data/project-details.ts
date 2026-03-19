@@ -1,45 +1,50 @@
 export type ProjectDetails = {
-  slug: string
-  overview: string
-  problem: string
-  architecture?: string
-  features?: string[]
-  challenges?: string[]
-  roadmap?: string[]
-}
+  slug: string;
+  overview: string;
+  problem: string;
+  architecture?: string;
+  features?: string[];
+  challenges?: string[];
+  roadmap?: string[];
+};
 
 export const projectDetails: ProjectDetails[] = [
   {
     slug: "guideo-saas",
 
     overview:
-      "Un projet personnel à long terme explorant la conception d'un jeu de stratégie persistant en navigateur. L'objectif est de construire un monde vivant où les joueurs développent des villes, interagissent via la diplomatie et la guerre, et influencent une économie gérée par les joueurs.",
+      "Guidéo est un projet de plusieurs mois que je considère comme ma première expérience professionnelle complète. J’ai mené ce projet en autonomie, de la conception au déploiement, en prenant en charge les choix de stack, d’architecture et de design. L’objectif était d’abord de concevoir un site vitrine, puis de développer une application SaaS de gestion pour cabinet d’avocats. Ce projet m’a permis de travailler la conception backend, la gestion de projet et le développement full-stack, avec une attention particulière portée à la maintenabilité et à l’évolutivité.",
 
     problem:
-      "La plupart des jeux en navigateur reposent sur des mécaniques pay-to-win et des boucles de gameplay éphémères. Ce projet vise à concevoir un système plus équilibré où les décisions stratégiques et la collaboration entre joueurs comptent davantage que la monétisation.",
+      "Face à un projet de cette envergure, l’un des principaux défis a été le manque initial de recul et d’expérience sur certains choix structurants. J’ai néanmoins su adopter une approche pragmatique en m’appuyant sur la documentation et des bonnes pratiques éprouvées. Pour le site vitrine, j’ai choisi Symfony et Twig afin de garantir de bonnes performances SEO. Pour l’application SaaS, j’ai opté pour une stack Symfony, React, Tailwind, PostgreSQL et Docker. Le choix d’un VPS m’a permis de garder un contrôle total sur l’environnement de production, tandis que l’utilisation de Docker a simplifié le déploiement et la gestion des services.",
 
     architecture:
-      "Le backend est conçu selon une architecture en couches avec Spring Boot. La logique de jeu est isolée dans des services domaine tandis que l'API REST expose des endpoints contrôlés vers l'application frontend React. La persistance repose sur MySQL, avec Docker pour les environnements de développement local.",
+      "Le site vitrine repose sur Symfony et Twig, assurant simplicité, performance et optimisation SEO. L’application SaaS suit une architecture en couches (type MVC), avec Symfony pour le backend et React associé à Tailwind pour le frontend. PostgreSQL est utilisé pour la gestion des données, pour sa robustesse et sa fiabilité. L’ensemble de l’application est containerisé avec Docker, permettant un déploiement maîtrisé sur un VPS et une meilleure reproductibilité des environnements.",
 
     features: [
-      "Système de progression basé sur les villes",
-      "Batailles automatisées avec préparation stratégique",
-      "Systèmes économiques gérés par les joueurs",
-      "Boucle d'interaction quotidienne courte (10–15 minutes)",
-      "Carte dynamique de villes réelles",
+      "Site vitrine avec présentation claire du service",
+      "Formulaire de contact sécurisé avec protection contre le spam",
+      "Authentification sécurisée via JWT (backend Symfony, frontend React/Vite)",
+      "Gestion du profil utilisateur et des données personnelles",
+      "Mise en place d’un module de blog (en cours) pour partager des contenus juridiques",
+      "Déploiement sur VPS avec Docker pour une gestion simplifiée de l’infrastructure",
     ],
 
     challenges: [
-      "Équilibrer les systèmes de gameplay à long terme",
-      "Concevoir des mécaniques de jeu évolutives",
-      "Maintenir une architecture backend maintenable",
+      "Définir une stack technique cohérente et adaptée aux besoins du projet",
+      "Mettre en place une architecture full-stack maintenable",
+      "Configurer Docker pour orchestrer plusieurs services",
+      "Concevoir une interface utilisateur en l’absence de designer dédié",
     ],
 
     roadmap: [
-      "Implémentation de la boucle de jeu principale",
-      "Systèmes de villes et d'économie",
-      "Moteur de simulation de batailles",
-      "Premier serveur jouable",
+      "Conception du projet et choix de la stack technique",
+      "Définition de la roadmap (Trello) et du design (Figma)",
+      "Développement du site vitrine avec Symfony et Twig",
+      "Déploiement du site vitrine sur VPS",
+      "Développement de l’application SaaS (Symfony, React, Tailwind)",
+      "Mise en place du déploiement avec Docker sur VPS",
+      "Amélioration continue en fonction des retours utilisateurs et des besoins métier",
     ],
   },
 
@@ -47,31 +52,35 @@ export const projectDetails: ProjectDetails[] = [
     slug: "portfolio",
 
     overview:
-      "Ce portfolio a été conçu comme un site web minimal et moderne pour présenter mes projets, ma stack technique et mon parcours. L'objectif était de créer une interface rapide et lisible, centrée sur la clarté du contenu.",
+      "Ce portfolio est un projet personnel conçu pour présenter mon parcours atypique, mes projets techniques et ma stack de prédilection. Au-delà d'une simple vitrine, il reflète ma façon d'aborder le développement : attention portée à la qualité du code, aux bonnes pratiques et à la maintenabilité. Il a également été l'occasion de découvrir Next.js, l'écosystème frontend moderne et Claude Code CLI.",
 
     problem:
-      "Beaucoup de portfolios développeur deviennent trop complexes ou visuellement lourds. L'objectif ici était de construire un site propre et maintenable, centré sur le contenu et la clarté technique.",
+      "En tant que développeur en reconversion, il était important de disposer d'un espace qui ne se contente pas de lister des projets, mais qui témoigne d'une vraie démarche technique. L'enjeu était de concevoir un site lisible, accessible et performant, sans tomber dans la surcharge visuelle souvent présente dans les portfolios de développeurs.",
 
     architecture:
-      "Le site est construit avec Next.js en utilisant l'App Router. Le style est géré avec Tailwind CSS et les composants UI sont basés sur shadcn/ui. Le projet est déployé sur Vercel avec une priorité sur la performance et la simplicité.",
+      "Le site repose sur Next.js 15 avec l'App Router et les React Server Components par défaut. Le style est entièrement géré via Tailwind CSS v4, dont la configuration se fait directement en CSS sans fichier de configuration dédié. Les composants UI s'appuient sur shadcn/ui. Les animations sont gérées par Framer Motion. Le formulaire de contact utilise Resend pour l'envoi d'emails, avec un rate limiting via Upstash Redis pour limiter les abus. Le projet est déployé sur Vercel.",
 
     features: [
-      "Design one-page responsive",
-      "Présentation de projets avec pages détaillées",
-      "Timeline interactive",
-      "Carrousel de stack technique",
-      "Formulaire de contact avec envoi d'email",
+      "Design one-page responsive, mobile-first",
+      "Section parcours avec timeline interactive par onglets",
+      "Pages projets dynamiques avec métadonnées SEO générées automatiquement",
+      "Carrousel de stack technique animé (marquee)",
+      "Formulaire de contact avec validation, protection honeypot et rate limiting",
+      "Mode clair / sombre via next-themes",
+      "Animations d'entrée avec Framer Motion et respect de prefers-reduced-motion",
     ],
 
     challenges: [
-      "Concevoir une mise en page visuellement équilibrée",
-      "Maintenir une base de code simple et maintenable",
+      "Appréhender Tailwind CSS v4 et sa configuration entièrement en CSS",
+      "Maîtriser la frontière RSC / composants client pour minimiser le JavaScript envoyé au navigateur",
+      "Mettre en place un formulaire de contact sécurisé avec rate limiting côté serveur",
+      "Concevoir une interface accessible tout en intégrant des animations fluides",
     ],
 
     roadmap: [
-      "Améliorer les études de cas des projets",
-      "Ajouter des articles de blog sur l'architecture backend",
-      "Enrichir les pages projets avec des diagrammes",
+      "Enrichir les pages projets avec des diagrammes d'architecture",
+      "Ajouter une section blog pour partager des retours d'expérience backend",
+      "Améliorer les études de cas avec des captures d'écran et des extraits de code",
     ],
   },
 
@@ -135,4 +144,4 @@ export const projectDetails: ProjectDetails[] = [
       "Déploiement",
     ],
   },
-]
+];

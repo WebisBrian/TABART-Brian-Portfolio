@@ -18,10 +18,10 @@ export const projects: Project[] = [
     slug: "guideo-saas",
     title: "Guideo - SaaS de gestion pour cabinet d'avocats",
     description:
-      "Projet soumis à une clause de confidentialité. La première étape a consisté à concevoir de A à Z un site vitrine, avec une attention particulière portée à l’UX et à la clarté de l’information.",
+      "Projet soumis à une clause de confidentialité, réalisé lors d’un stage de plusieurs mois chez Guideo. Il s’agit d’une application SaaS conçue pour simplifier la gestion et le suivi de l’activité d’un cabinet d’avocats.",
     longDescription:
-      "Dans un second temps, une application SaaS a été développée afin de simplifier la gestion et le suivi de l’activité d’un cabinet d’avocats.",
-    stack: ["Symfony", "React", "Tailwind", "MySQL", "Docker", "VPS"],
+      "Le projet a débuté par la conception d’un site vitrine destiné à présenter le service, avec un soin particulier apporté à l’expérience utilisateur et à la clarté de l’information. Dans un second temps, une application SaaS a été développée afin de répondre aux besoins métier d’un cabinet d’avocats, en simplifiant la gestion et le suivi de son activité.",
+    stack: ["Symfony", "React", "Tailwind", "PostgreSQL", "Docker", "VPS"],
     status: "Terminé",
     image: "/images/projects/guideo-saas.png",
     featured: true,
