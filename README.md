@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Brian Tabart
 
-## Getting Started
+![Portfolio preview](./public/images/projects/portfolio.png)
 
-First, run the development server:
+Portfolio personnel de Brian Tabart, développeur backend Java en reconversion depuis le milieu de la santé. Conçu pour présenter mes projets, mon parcours et ma stack technique.
+
+## Stack
+
+- **Framework** : Next.js 15 — App Router, React Server Components
+- **Langage** : TypeScript 5
+- **Style** : Tailwind CSS v4 (configuration via `globals.css`, sans `tailwind.config.ts`)
+- **UI** : shadcn/ui
+- **Animations** : Framer Motion
+- **Email** : Resend
+- **Rate limiting** : Upstash Redis
+- **Déploiement** : Vercel
+
+## Lancer le projet en local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Variables d'environnement
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Créer un fichier `.env.local` à la racine :
 
-## Learn More
+```env
+RESEND_API_KEY=
+CONTACT_TO_EMAIL=
+CONTACT_FROM_EMAIL=
+UPSTASH_REDIS_REST_URL=
+UPSTASH_REDIS_REST_TOKEN=
+```
 
-To learn more about Next.js, take a look at the following resources:
+| Variable | Description |
+|---|---|
+| `RESEND_API_KEY` | Clé API Resend pour l'envoi d'emails |
+| `CONTACT_TO_EMAIL` | Email qui reçoit les messages du formulaire |
+| `CONTACT_FROM_EMAIL` | Email expéditeur (doit être vérifié sur Resend) |
+| `UPSTASH_REDIS_REST_URL` | URL REST de la base Upstash Redis |
+| `UPSTASH_REDIS_REST_TOKEN` | Token d'authentification Upstash |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure du projet
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/
+│   ├── api/contact/       Route API — envoi d'email + rate limiting
+│   ├── projects/[slug]/   Pages projets dynamiques
+│   ├── globals.css        Thème Tailwind v4 (couleurs, typographie, animations)
+│   └── layout.tsx
+├── components/
+│   ├── layout/            Navbar, header, footer, conteneurs
+│   ├── sections/          Sections de la page (hero, parcours, projets, stack, contact…)
+│   └── ui/                Composants shadcn/ui et composants custom
+├── data/                  Données statiques (projets, livres, parcours, technologies)
+└── lib/                   Utilitaires, template email, rate limiting
+```
 
-## Deploy on Vercel
+## Déploiement
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Le projet est déployé sur Vercel. Les variables d'environnement sont à configurer dans le dashboard Vercel avant le premier déploiement.
