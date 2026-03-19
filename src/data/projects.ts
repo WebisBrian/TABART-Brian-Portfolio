@@ -16,7 +16,7 @@ export const projects: Project[] = [
   {
     id: "guideo-saas",
     slug: "guideo-saas",
-    title: "Guideo - SaaS pour avocats",
+    title: "Guideo - SaaS de gestion pour cabinet d'avocats",
     description:
       "Projet soumis à une clause de confidentialité. La première étape a consisté à concevoir de A à Z un site vitrine, avec une attention particulière portée à l’UX et à la clarté de l’information.",
     longDescription:
@@ -42,7 +42,7 @@ export const projects: Project[] = [
   {
     id: "paymybuddy",
     slug: "paymybuddy",
-    title: "PayMyBuddy - Application de transfert d'argent",
+    title: "PayMyBuddy - Transfert d'argent",
     description:
       "L'application repose sur une architecture en couches avec DB-first. L'objectif est de proposer une solution simple, fiable et accessible pour les échanges d'argent du quotidien.",
     stack: ["Spring Boot", "Spring Security", "Thymeleaf", "Tailwind", "MySQL"],
@@ -53,7 +53,7 @@ export const projects: Project[] = [
   {
     id: "safetynet-alerts",
     slug: "safetynet-alerts",
-    title: "SafetyNet Alerts - Spring Boot API",
+    title: "SafetyNet Alerts - API REST",
     description:
       "SafetyNet Alerts est une API REST conçue pour centraliser et exposer des données utiles aux services de secours. Récupère et met à jour des informations liées aux personnes, afin d’améliorer la réactivité en situation d’urgence.",
     stack: ["Spring Boot", "Java"],
