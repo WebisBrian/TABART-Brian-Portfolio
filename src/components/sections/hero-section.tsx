@@ -38,7 +38,7 @@ export function HeroSection() {
                 eyebrow="Portfolio"
                 title={
                   <>
-                    <span className="block bg-linear-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                    <span className="block bg-linear-to-r from-red-400 via-orange-500 to-amber-400 bg-clip-text text-transparent">
                       Brian Tabart
                     </span>
                     <span className="block">
@@ -117,7 +117,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
           >
             {/* Gradient ring border */}
-            <div className="rounded-full bg-linear-to-br from-indigo-500 via-purple-500 to-cyan-400 p-0.75 shadow-2xl">
+            <div className="rounded-full bg-linear-to-br from-red-400 via-orange-500 to-amber-400 p-0.75 shadow-2xl">
               <div className="relative h-64 w-64 overflow-hidden rounded-full sm:h-80 sm:w-80">
                 <Image
                   src="/images/profil.png"
