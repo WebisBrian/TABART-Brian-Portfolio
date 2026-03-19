@@ -61,7 +61,7 @@ function StatusBadge({ status }: { status: string }) {
         status === "En cours" &&
           "border-blue-500/40 bg-blue-500/10 text-blue-500",
         status === "Terminé" &&
-          "border-green-500/40 bg-green-500/10 text-green-500",
+          "border-green-600/60 bg-green-500/20 text-green-700 dark:border-green-500/40 dark:bg-green-500/10 dark:text-green-500",
         status === "Prévu" &&
           "border-muted-foreground/40 text-muted-foreground",
       )}
