@@ -239,6 +239,7 @@ export function ContactSection() {
                         type="text"
                         placeholder="Votre nom"
                         aria-required="true"
+                        autoComplete="name"
                         value={form.name}
                         onChange={handleChange}
                       />
@@ -257,6 +258,7 @@ export function ContactSection() {
                         type="email"
                         placeholder="votre@email.com"
                         aria-required="true"
+                        autoComplete="email"
                         value={form.email}
                         onChange={handleChange}
                       />
