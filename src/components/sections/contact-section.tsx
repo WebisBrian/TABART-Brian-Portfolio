@@ -211,7 +211,7 @@ export function ContactSection() {
                       meilleurs délais.
                     </p>
                   </div>
-                  <Button variant="outline" size="lg" onClick={() => setStatus("idle")}>
+                  <Button variant="outline" size="lg" onClick={() => { setStatus("idle"); setFeedbackMessage(""); }}>
                     Envoyer un autre message
                   </Button>
                 </motion.div>
