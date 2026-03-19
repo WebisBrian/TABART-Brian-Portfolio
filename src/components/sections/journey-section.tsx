@@ -52,7 +52,7 @@ export function JourneySection() {
                       key={step.id}
                       value={step.id}
                       aria-label={step.period}
-                      className="flex-1 cursor-pointer inline-flex items-center justify-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground data-active:border-primary data-active:bg-primary data-active:text-primary-foreground data-active:shadow-none sm:flex-none"
+                      className="flex-1 cursor-pointer inline-flex items-center justify-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground hover:bg-foreground/8 hover:text-foreground data-active:border-primary data-active:bg-primary data-active:text-primary-foreground data-active:shadow-none sm:flex-none"
                     >
                       <StepIcon className="h-4 w-4" aria-hidden="true" />
                       <span className="hidden sm:inline">{step.period}</span>
