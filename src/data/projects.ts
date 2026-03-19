@@ -27,6 +27,16 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: "patient-placement",
+    slug: "patient-placement",
+    title: "Gestion des placements patients",
+    description:
+      "Application web à destination des équipes soignantes pour planifier et suivre les placements de patients en hôpital de jour ou de semaine. Un projet qui fait le lien entre mon expérience de soignant et mes compétences de développeur.",
+    stack: ["Spring Boot", "Next.js", "Tailwind", "MySQL", "Docker"],
+    status: "Prévu",
+    image: "/images/projects/patient-placement.png",
+  },
+  {
     id: "portfolio",
     slug: "portfolio",
     title: "Portfolio développeur",
@@ -45,11 +55,18 @@ export const projects: Project[] = [
     title: "PayMyBuddy - Transfert d'argent",
     description:
       "L'application repose sur une architecture en couches avec DB-first. L'objectif est de proposer une solution simple, fiable et accessible pour les échanges d'argent du quotidien.",
-    stack: ["Spring Boot", "Spring Security", "Thymeleaf", "MySQL", "Continuous Integration"],
+    stack: [
+      "Spring Boot",
+      "Spring Security",
+      "Thymeleaf",
+      "MySQL",
+      "Continuous Integration",
+    ],
     status: "Terminé",
     githubUrl: "https://github.com/WebisBrian/TABART-Brian-payMyBuddy",
     image: "/images/projects/paymybuddy.png",
   },
+
   {
     id: "safetynet-alerts",
     slug: "safetynet-alerts",

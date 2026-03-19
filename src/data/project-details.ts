@@ -85,6 +85,39 @@ export const projectDetails: ProjectDetails[] = [
   },
 
   {
+    slug: "patient-placement",
+
+    overview:
+      "Ce projet est né d'un constat de terrain : la gestion des placements de patients en hôpital de jour ou de semaine repose encore souvent sur des outils inadaptés — tableurs, papier, ou logiciels génériques peu ergonomiques. L'idée est de concevoir une application web pensée par et pour les soignants, avec une interface claire et des fonctionnalités centrées sur les besoins réels du terrain.",
+
+    problem:
+      "Les cadres référents de ce type d'unités passent un temps considérable à orchestrer les entrées et sorties de patients, à anticiper les disponibilités de chambres et à répondre aux demandes de l'administration. L'absence d'un outil dédié génère des pertes de temps, des risques d'erreurs et un manque de lisibilité global sur l'activité du service.",
+
+    features: [
+      "Planification des entrées et sorties avec vue journalière, hebdomadaire et mensuelle",
+      "Visualisation des chambres disponibles sur une période donnée",
+      "Gestion des rôles : accès en modification pour les référents, accès en lecture pour les autres intervenants",
+      "Identification des hospitalisations pouvant être avancées ou reportées",
+      "Export de statistiques d'activité à destination de l'administration",
+    ],
+
+    challenges: [
+      "Concevoir une interface adaptée à des utilisateurs non techniques",
+      "Modéliser des règles métier complexes liées à la gestion des lits et des séjours",
+      "Gérer finement les droits d'accès selon les profils utilisateurs",
+    ],
+
+    roadmap: [
+      "Cadrage fonctionnel et modélisation du domaine métier",
+      "Conception de la base de données et des entités JPA",
+      "Développement de l'API REST avec Spring Boot",
+      "Mise en place de la gestion des rôles avec Spring Security",
+      "Développement de l'interface utilisateur",
+      "Tests et validation avec des retours terrain",
+    ],
+  },
+
+  {
     slug: "paymybuddy",
 
     overview:
