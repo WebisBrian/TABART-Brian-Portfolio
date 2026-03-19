@@ -125,6 +125,7 @@ export function HeroSection() {
                   fill
                   className="object-cover"
                   priority
+                  sizes="(max-width: 640px) 256px, 320px"
                 />
               </div>
             </div>
