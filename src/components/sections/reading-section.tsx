@@ -128,7 +128,7 @@ export function ReadingSection() {
                       </p>
                     </div>
 
-                    <p className="line-clamp-2 text-sm leading-6 text-muted-foreground">
+                    <p className="text-sm leading-6 text-muted-foreground">
                       {book.takeaway}
                     </p>
                   </div>
