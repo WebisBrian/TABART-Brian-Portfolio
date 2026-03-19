@@ -17,8 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Brian Tabart — Développeur backend",
   description: "Java / Spring Boot portfolio développeur backend",
-  // TODO: adapt URL when deployed
-  metadataBase: new URL("https://btabart.dev"),
+  metadataBase: new URL("https://tabart-brian-portfolio.vercel.app"),
   openGraph: {
     title: "Brian Tabart — Développeur backend",
     description: "Java / Spring Boot portfolio développeur backend",

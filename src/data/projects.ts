@@ -45,8 +45,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "Tailwind", "shadcn/ui", "Vercel"],
     status: "En cours",
     githubUrl: "https://github.com/WebisBrian/TABART-Brian-Portfolio",
-    // TODO : add real live URL when deployed
-    liveUrl: "https://btabart.dev",
+    liveUrl: "https://tabart-brian-portfolio.vercel.app",
     image: "/images/projects/portfolio.png",
   },
   {
