@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
+import { IconGithub } from "@/components/ui/icons";
 import { motion, useInView } from "framer-motion";
 import { fadeUp, stagger } from "@/lib/animations";
 import { projects } from "@/data/projects";
@@ -198,7 +198,7 @@ export function ProjectsSection() {
                               target="_blank"
                               rel="noreferrer"
                             >
-                              <FaGithub aria-hidden="true" />
+                              <IconGithub />
                               GitHub
                             </a>
                           </Button>
@@ -294,7 +294,7 @@ export function ProjectsSection() {
                             target="_blank"
                             rel="noreferrer"
                           >
-                            <FaGithub aria-hidden="true" />
+                            <IconGithub />
                             GitHub
                           </a>
                         </Button>

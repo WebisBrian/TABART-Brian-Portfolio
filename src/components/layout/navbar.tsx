@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { IconGithub, IconLinkedin } from "@/components/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -87,7 +87,7 @@ export function Navbar() {
               aria-label="GitHub (nouvelle fenêtre)"
               className="inline-flex items-center gap-2 rounded-md px-2 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
             >
-              <FaGithub className="h-7 w-7 shrink-0 sm:h-5 sm:w-5" aria-hidden="true" />
+              <IconGithub className="h-7 w-7 shrink-0 sm:h-5 sm:w-5" />
               <span className="hidden sm:inline">GitHub</span>
             </a>
           </motion.div>
@@ -104,7 +104,7 @@ export function Navbar() {
               aria-label="LinkedIn (nouvelle fenêtre)"
               className="inline-flex items-center gap-2 rounded-md px-2 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
             >
-              <FaLinkedin className="h-7 w-7 shrink-0 sm:h-5 sm:w-5" aria-hidden="true" />
+              <IconLinkedin className="h-7 w-7 shrink-0 sm:h-5 sm:w-5" />
               <span className="hidden sm:inline">LinkedIn</span>
             </a>
           </motion.div>

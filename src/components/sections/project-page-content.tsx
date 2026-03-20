@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, ArrowUpRight } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
+import { IconGithub } from "@/components/ui/icons";
 import { motion } from "framer-motion";
 import type { Project } from "@/data/projects";
 import type { ProjectDetails } from "@/data/project-details";
@@ -205,7 +205,7 @@ export function ProjectPageContent({ project, details, relatedProjects }: Props)
                     {project.githubUrl && (
                       <Button variant="outline" size="sm" asChild className="justify-start">
                         <a href={project.githubUrl} target="_blank" rel="noreferrer" aria-label="GitHub (nouvelle fenêtre)">
-                          <FaGithub aria-hidden="true" />
+                          <IconGithub />
                           GitHub
                         </a>
                       </Button>

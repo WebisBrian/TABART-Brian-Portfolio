@@ -2,7 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { Mail } from "lucide-react";
+import { IconGithub, IconLinkedin } from "@/components/ui/icons";
 
 import { Separator } from "@/components/ui/separator";
 import { SiteContainer } from "@/components/layout/site-container";
@@ -34,7 +35,7 @@ export function SiteFooter() {
               aria-label="Envoyer un email"
               className="p-3 transition-colors hover:text-foreground"
             >
-              <FaEnvelope className="h-7 w-7 shrink-0 sm:h-5 sm:w-5" aria-hidden="true" />
+              <Mail className="h-7 w-7 shrink-0 sm:h-5 sm:w-5" aria-hidden="true" />
             </a>
 
             <a
@@ -44,7 +45,7 @@ export function SiteFooter() {
               aria-label="GitHub"
               className="p-2 transition-colors hover:text-foreground"
             >
-              <FaGithub className="h-7 w-7 shrink-0 sm:h-5 sm:w-5" aria-hidden="true" />
+              <IconGithub className="h-7 w-7 shrink-0 sm:h-5 sm:w-5" />
             </a>
 
             <a
@@ -54,7 +55,7 @@ export function SiteFooter() {
               aria-label="LinkedIn"
               className="p-2 transition-colors hover:text-foreground"
             >
-              <FaLinkedin className="h-7 w-7 shrink-0 sm:h-5 sm:w-5" aria-hidden="true" />
+              <IconLinkedin className="h-7 w-7 shrink-0 sm:h-5 sm:w-5" />
             </a>
           </div>
         </motion.div>

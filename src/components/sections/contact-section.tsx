@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { Mail, Send, CheckCircle, Download } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { IconGithub, IconLinkedin } from "@/components/ui/icons";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { fadeUp, stagger } from "@/lib/animations";
 import { Button } from "@/components/ui/button";
@@ -31,14 +31,14 @@ const socialLinks = [
   {
     href: "https://github.com/WebisBrian",
     label: "GitHub",
-    icon: FaGithub,
+    icon: IconGithub,
     external: true,
     download: undefined,
   },
   {
     href: "https://linkedin.com/in/brian-tabart",
     label: "LinkedIn",
-    icon: FaLinkedin,
+    icon: IconLinkedin,
     external: true,
     download: undefined,
   },
