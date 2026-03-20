@@ -34,7 +34,7 @@ export const projects: Project[] = [
       "Application web à destination des équipes soignantes pour planifier et suivre les placements de patients en hôpital de jour ou de semaine. Un projet qui fait le lien entre mon expérience de soignant et mes compétences de développeur.",
     stack: ["Spring Boot", "Next.js", "Tailwind", "MySQL", "Docker"],
     status: "Prévu",
-    image: "/images/projects/patient-placement.png",
+    image: "/images/projects/patient-placement.webp",
   },
   {
     id: "portfolio",
