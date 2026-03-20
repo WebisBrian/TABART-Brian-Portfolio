@@ -44,6 +44,7 @@ export function HeroSection() {
                     <span className="block">
                       <EncryptedText
                         text="Développeur Backend Java"
+                        className="block w-full"
                         encryptedClassName="text-muted-foreground"
                         revealedClassName="text-foreground/80"
                         revealDelayMs={60}
@@ -54,7 +55,7 @@ export function HeroSection() {
                 }
                 description="De la santé au développement backend Java, je mets aujourd’hui mon énergie au service de la création de solutions logicielles robustes, évolutives et porteuses de sens."
                 as="h1"
-                titleClassName="text-4xl sm:text-5xl lg:text-6xl"
+                titleClassName="text-4xl sm:text-5xl lg:text-6xl leading-tight"
               />
             </motion.div>
 
