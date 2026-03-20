@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://tabart-brian-portfolio.vercel.app"),
   openGraph: {
     title: "Brian Tabart — Développeur backend",
-    description: "Java / Spring Boot portfolio développeur backend",
+    description: "Portfolio développeur backend Java",
     url: "https://tabart-brian-portfolio.vercel.app",
     siteName: "Brian Tabart",
     type: "website",
