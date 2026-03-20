@@ -22,7 +22,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Brian Tabart — Développeur backend",
     description: "Java / Spring Boot portfolio développeur backend",
-    images: ["/og-image.png"],
+    url: "https://tabart-brian-portfolio.vercel.app",
+    siteName: "Brian Tabart",
+    type: "website",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Brian Tabart — Développeur backend Java / Spring Boot",
+      },
+    ],
   },
 };
 
