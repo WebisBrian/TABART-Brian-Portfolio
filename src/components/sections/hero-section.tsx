@@ -121,7 +121,7 @@ export function HeroSection() {
             <div className="rounded-full bg-linear-to-br from-chart-1 via-chart-2 to-chart-3 p-0.75 shadow-2xl">
               <div className="relative h-64 w-64 overflow-hidden rounded-full sm:h-80 sm:w-80">
                 <Image
-                  src="/images/profil.png"
+                  src="/images/profil.webp"
                   alt="Portrait de Brian Tabart"
                   fill
                   className="object-cover"

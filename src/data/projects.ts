@@ -23,7 +23,7 @@ export const projects: Project[] = [
       "Le projet a débuté par la conception d’un site vitrine destiné à présenter le service, avec un soin particulier apporté à l’expérience utilisateur et à la clarté de l’information. Dans un second temps, une application SaaS a été développée afin de répondre aux besoins métier d’un cabinet d’avocats, en simplifiant la gestion et le suivi de son activité.",
     stack: ["Symfony", "React", "Tailwind", "PostgreSQL", "Docker", "VPS"],
     status: "Terminé",
-    image: "/images/projects/guideo-saas.png",
+    image: "/images/projects/guideo-saas.webp",
     featured: true,
   },
   {
@@ -46,7 +46,7 @@ export const projects: Project[] = [
     status: "En cours",
     githubUrl: "https://github.com/WebisBrian/TABART-Brian-Portfolio",
     liveUrl: "https://tabart-brian-portfolio.vercel.app",
-    image: "/images/projects/portfolio.png",
+    image: "/images/projects/portfolio.webp",
   },
   {
     id: "paymybuddy",
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     ],
     status: "Terminé",
     githubUrl: "https://github.com/WebisBrian/TABART-Brian-payMyBuddy",
-    image: "/images/projects/paymybuddy.png",
+    image: "/images/projects/paymybuddy.webp",
   },
 
   {
@@ -75,6 +75,6 @@ export const projects: Project[] = [
     stack: ["Spring Boot", "Java"],
     status: "Terminé",
     githubUrl: "https://github.com/WebisBrian/TABART-Brian-safetyNetAlerts",
-    image: "/images/projects/safetynet-alerts.png",
+    image: "/images/projects/safetynet-alerts.webp",
   },
 ];

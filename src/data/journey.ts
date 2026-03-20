@@ -20,7 +20,7 @@ export const journeySteps: JourneyStep[] = [
     icon: Sparkles,
     shortDescription:
       "Une période marquée par la curiosité, l’apprentissage et les jeux vidéo, accompagnée d’un certain brin d’insouciance. C'est là que s'est construit le goût de comprendre, d'apprendre et d'essayer.",
-    image: "/images/journey/youth.png",
+    image: "/images/journey/youth.webp",
     highlights: ["Curiosité", "Compréhension", "Expérimentation"],
   },
   {
@@ -31,7 +31,7 @@ export const journeySteps: JourneyStep[] = [
     icon: HeartPulse,
     shortDescription:
       "Infirmier pendant onze ans au CHU de Rouen, j’y ai appris à garder mon calme sous pression, à assumer des responsabilités et à m’appuyer sur le collectif. Cette expérience m’a surtout appris à faire face à l’inconnu, à m’adapter à des situations complexes et à trouver des solutions, sans jamais oublier l’essentiel : l’humain, au cœur de ma pratique.",
-    image: "/images/journey/nurse.png",
+    image: "/images/journey/nurse.webp",
     highlights: ["Empathie", "Responsabilité", "Esprit d'équipe"],
   },
   {
@@ -42,7 +42,7 @@ export const journeySteps: JourneyStep[] = [
     icon: Laptop,
     shortDescription:
       "Le développement logiciel est devenu une continuité naturelle de mon parcours. Continuer à être utile, autrement. Je me concentre aujourd’hui sur le backend, avec une attention forte portée à la qualité du code et aux architectures durables.",
-    image: "/images/journey/developer.png",
+    image: "/images/journey/developer.webp",
     highlights: ["Backend", "Architecture", "Maintenabilité"],
   },
 ];
